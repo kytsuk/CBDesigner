@@ -9,12 +9,17 @@ import {Layer} from "../board.model";
 })
 export class ShowLayerComponent implements OnInit {
    layer: Layer[]=[];
-   totalWidth: number;
-  constructor(public boardservise: BoardService) { }
+    selectNumber: number;
+  constructor(public boardservise: BoardService) {    }
 
   ngOnInit() {
     this.layer = this.boardservise.layer;
-    console.log(this.layer);
-  }
 
+  }
+    sortLayer(value, i:number){
+     let sort = this.layer[i];
+        this.layer.splice(i)
+      this.layer.splice(value.value, 0, sort);
+
+    }
 }

@@ -7,16 +7,20 @@
   <div class=" col-xs-6">
     <div *ngFor="let ley of layer; let i = index" >
       <form>
-        <select [value]="i">
+        <select [value]="i"  name="numberLayer" #numberLayer (change)="sortLayer(numberLayer, i)">
           <option  *ngFor="let num of layer; let y = index"  >{{y}}</option>
         </select>
-        <select [value]="layer[i].name">
-          <option *ngFor="let wood of layer"  >{{wood.name}}</option>
+        <select [value]="layer[i].name" [(ngModel)]="layer[i].name" name="name" #name="ngModel">
+          <option *ngFor="let wood of boardservise.colorLayer"  >{{wood.name}}</option>
         </select>
-        <input type="number" [value]="ley.width">
-
+        <input type="number" [value]="ley.width" [(ngModel)]="layer[i].width" name="width" #width="ngModel">
       </form>
     </div>
   </div>
-</div>
+  </div>
 
+<div class="row">
+  <label for="" *ngIf="layer.length">
+    Total width ={{boardservise.totalWidth}}
+  </label>
+</div>
