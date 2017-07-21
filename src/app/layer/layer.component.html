@@ -1,0 +1,15 @@
+<div class="layer-add">
+  <form >
+    <label for=""> width, mm</label>
+    <input type="text"  name="width" [(ngModel)]="width">
+    <label> wood </label>
+    <select  name="color"  [(ngModel)]="selected" #color="ngModel" >
+      <option *ngFor="let col of colors; let i = index" [value]="i" >
+        {{col.name}}
+
+      </option>
+    </select>
+    <div *ngIf="selected" class=" color" [ngStyle]="{'background': colors[selected].color}"></div>
+<button class="btn btn-success" (click)="AddLayer()">Add new Layer</button>
+  </form>
+</div>

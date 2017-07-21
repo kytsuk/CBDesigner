@@ -1,0 +1,22 @@
+<div class="row">
+  <div class=" col-xs-6">
+    <div *ngFor="let ley of layer" [ngStyle]="{'background': ley.color, 'height': ley.width+'px'}">
+      {{ley.name}}
+    </div>
+  </div>
+  <div class=" col-xs-6">
+    <div *ngFor="let ley of layer; let i = index" >
+      <form>
+        <select [value]="i">
+          <option  *ngFor="let num of layer; let y = index"  >{{y}}</option>
+        </select>
+        <select [value]="layer[i].name">
+          <option *ngFor="let wood of layer"  >{{wood.name}}</option>
+        </select>
+        <input type="number" [value]="ley.width">
+
+      </form>
+    </div>
+  </div>
+</div>
+
