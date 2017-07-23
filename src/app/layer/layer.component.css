@@ -9,3 +9,9 @@
     vertical-align: middle;
 
 }
+.form-group{
+    margin-top: 20px;
+}
+.form-control{
+    height: auto;
+}

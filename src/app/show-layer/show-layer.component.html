@@ -1,26 +1,44 @@
 <div class="row">
-  <div class=" col-xs-6">
-    <div *ngFor="let ley of layer" [ngStyle]="{'background': ley.color, 'height': ley.width+'px'}">
-      {{ley.name}}
+  <div class=" col-xs-5">
+    <div *ngFor="let ley of boardservise.layer"
+         class="board-layer"
+         [ngStyle]="{'background': ley.color, 'height': ley.width+'px'}">
+
     </div>
   </div>
-  <div class=" col-xs-6">
-    <div *ngFor="let ley of layer; let i = index" >
+  <div class=" col-xs-7" >
+    <div
+            *ngFor="let ley of boardservise.layer; let i = index" >
       <form>
         <select [value]="i"  name="numberLayer" #numberLayer (change)="sortLayer(numberLayer, i)">
-          <option  *ngFor="let num of layer; let y = index"  >{{y}}</option>
+          <option  *ngFor="let num of boardservise.layer; let y = index"  >{{y}}</option>
         </select>
-        <select [value]="layer[i].name" [(ngModel)]="layer[i].name" name="name" #name="ngModel">
+        <select [value]="boardservise.layer[i].name" [(ngModel)]="boardservise.layer[i].name" name="name" #name="ngModel">
           <option *ngFor="let wood of boardservise.colorLayer"  >{{wood.name}}</option>
         </select>
-        <input type="number" [value]="ley.width" [(ngModel)]="layer[i].width" name="width" #width="ngModel">
+        <input type="number" [value]="ley.width" [(ngModel)]="boardservise.layer[i].width" name="width" #width="ngModel" (change)="changeWidth()">
+        <span class="glyphicon glyphicon-remove" (click)="remove(i)"></span>
       </form>
+
     </div>
+
   </div>
   </div>
 
-<div class="row">
-  <label for="" *ngIf="layer.length">
-    Total width ={{boardservise.totalWidth}}
-  </label>
+<div class="row info" *ngIf="boardservise.layer.length">
+  <div class="total">
+    <label for="" >
+  <i>Total length layer =</i>
+      <span>{{boardservise.totalWidth}}</span>  <i> mm </i>
+    </label>
+  </div>
+  <form #myForm="ngForm" >
+    <label>Layer height, mm</label>
+    <input type="number" #height name="height" required
+           [value]="this.boardservise.heightBoard[this.boardservise.editLayer]">
+    <button class="btn btn-success" (click)="SaveLayer(height)" [disabled]="myForm.invalid">Save  Layer </button>
+  </form>
+
+
+
 </div>

@@ -1,0 +1,10 @@
+.board{
+    border-left: 0.01em solid black;
+    border-top: 0.01em solid black;
+}
+.cut-board{
+    display: inline-block;
+}
+.active-block{
+    border:1px solid red ;
+}

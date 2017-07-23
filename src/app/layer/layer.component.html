@@ -1,15 +1,48 @@
-<div class="layer-add">
-  <form >
-    <label for=""> width, mm</label>
-    <input type="text"  name="width" [(ngModel)]="width">
-    <label> wood </label>
-    <select  name="color"  [(ngModel)]="selected" #color="ngModel" >
-      <option *ngFor="let col of colors; let i = index" [value]="i" >
-        {{col.name}}
+<div class="container">
+  <div class="row">
+    <nav>
+      <ul class="nav nav-pills header ">
+        <li role="presentation" ><button (click)="layerAdd()"
+                                         [disabled]="show"
+                                          class="btn btn-info">
+          <span class="glyphicon glyphicon-plus">Add Layer
+          </span></button></li>
+        <li role="presentation" ><button routerLink="/#"  class="btn btn-info"><span class="glyphicon glyphicon-refresh"> Refresh</span></button></li>
+        <li role="presentation"><button href="#"  class="btn btn-info"><span class="glyphicon glyphicon-print">Print</span></button></li>
+        <li role="presentation"><button href="#"  class="btn btn-info"><span class="glyphicon glyphicon-save-file">Total</span></button></li>
+      </ul>
 
-      </option>
-    </select>
-    <div *ngIf="selected" class=" color" [ngStyle]="{'background': colors[selected].color}"></div>
-<button class="btn btn-success" (click)="AddLayer()">Add new Layer</button>
-  </form>
+    </nav>
+  </div>
+  <div class="layer-add" *ngIf="show">
+    <form class="form-group">
+      <div class="form-control">
+        <label for=""> Width part, mm</label>
+        <input type="text"  name="width" [(ngModel)]="width" class="">
+        <label> Change wood</label>
+        <select  name="color"  [(ngModel)]="selected" #color="ngModel" >
+          <option *ngFor="let col of colors; let i = index" [value]="i" >
+            {{col.name}}
+          </option>
+        </select>
+        <div *ngIf="selected" class=" color" [ngStyle]="{'background': colors[selected].color}"></div>
+        <button class="btn btn-success" (click)="AddItemLayer()">Add  Layer Item</button>
+
+      </div>
+
+
+    </form>
+  </div>
+  <div class="row">
+    <div class="row col-xs-6">
+      <app-show-layer></app-show-layer>
+      <app-list-layer></app-list-layer>
+    </div>
+    <div class="col-xs-6">
+      <app-board></app-board>
+    </div>
+  </div>
+
 </div>
+
+

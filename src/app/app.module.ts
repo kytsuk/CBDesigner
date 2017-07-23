@@ -9,13 +9,19 @@ import { LayerComponent } from './layer/layer.component';
 import {BoardService} from "./board.service";
 import { ShowLayerComponent } from './show-layer/show-layer.component';
 import {RouterModule} from "@angular/router";
+import { PanelComponent } from './core/panel/panel.component';
+import { ListLayerComponent } from './list-layer/list-layer.component';
+import { BoardComponent } from './board/board.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LayerComponent,
-    ShowLayerComponent
+    ShowLayerComponent,
+    PanelComponent,
+    ListLayerComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +29,9 @@ import {RouterModule} from "@angular/router";
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      //{path: '', component: LayerComponent}
+      {path: '' , component: HeaderComponent },
+      {path: 'panel', component: LayerComponent}
+      // {path: 'layer', component: LayerComponent}
     ])
   ],
   providers: [BoardService],

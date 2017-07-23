@@ -1,0 +1,20 @@
+.show-list{
+    display: block;
+    margin: 0 40px;
+
+    padding: 0;
+}
+.vertical-padding{
+    padding-top: 25px;
+}
+.board-layer-item{
+    border: 0.5px solid black;
+    border-top: none;
+}
+.board-layer :first-child div{
+    border-top: 0.5px solid black;
+}
+.button{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}

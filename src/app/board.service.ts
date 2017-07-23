@@ -11,28 +11,38 @@ export class BoardService {
       color: '#443028'
       },
       {name: 'chery',
-          color: '#95552f'
+       color: '#95552f'
       },
       {name: 'maple',
-          color: '#f4d7af'
+       color: '#f4d7af'
       },
       {name: 'apple',
-          color: '#cf7e4f'
+      color: '#cf7e4f'
       },
       {name: 'Ash',
-          color: '#ebe2d3'
+      color: '#ebe2d3'
       }
 
   ]
   constructor() { }
-   public totalWidth: number = 0;
-  public layer: Layer[] = [];
+    public layershow: boolean = false; //для показу компонетів
+    public editLayer: number = null;
+  public totalWidth: number = 0; // загальна ширина щита
+  public heightBoard: any[] = []; // висота щита
+  public  clickeditem: number[]=[]; //номер щита під час додавання ділянок
+
+  public layer: Layer[] = []; // один щит
+  public finalLayer: any[]=[]; // масив щитів
+  public board: any[] = []; //масив ділянок дошки
 
   addItemLayer(width: number, color: string, name: string){
    this.layer.push(new Layer(width, color, name));
    this.totalWidth += +width;
 
   }
+   addFinalLayer(newlayer){
+      this.finalLayer.push(newlayer);
 
+   }
 
 }
