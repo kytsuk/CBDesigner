@@ -16,8 +16,6 @@ export class ShowLayerComponent implements OnInit {
 
 
   }
-
-
     sortLayer(value, i:number){
      let sort = this.boardservise.layer[i];
         this.boardservise.layer.splice(i,1)
@@ -29,7 +27,14 @@ export class ShowLayerComponent implements OnInit {
       this.boardservise.layer.splice(i,1);
     }
 
-
+    changeWood(name,i){
+        let lengthLayer = this.boardservise.layer.length;
+        for(let j = 0; j < lengthLayer; j++){
+            if(this.boardservise.colorLayer[j].name == name.value){
+                this.boardservise.layer[i].color = this.boardservise.colorLayer[j].color;
+            }
+        }
+    }
 
     changeWidth(){
 

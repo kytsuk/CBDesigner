@@ -13,7 +13,7 @@
         <select [value]="i"  name="numberLayer" #numberLayer (change)="sortLayer(numberLayer, i)">
           <option  *ngFor="let num of boardservise.layer; let y = index"  >{{y}}</option>
         </select>
-        <select [value]="boardservise.layer[i].name" [(ngModel)]="boardservise.layer[i].name" name="name" #name="ngModel">
+        <select [value]="boardservise.layer[i].name" [(ngModel)]="boardservise.layer[i].name" name="name" #name="ngModel" (change)=" changeWood(name,i)">
           <option *ngFor="let wood of boardservise.colorLayer"  >{{wood.name}}</option>
         </select>
         <input type="number" [value]="ley.width" [(ngModel)]="boardservise.layer[i].width" name="width" #width="ngModel" (change)="changeWidth()">

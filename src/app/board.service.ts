@@ -7,33 +7,34 @@ export class BoardService {
       {name: 'Oak',
        color: '#806517'
       },
-      {name: 'walnut',
+      {name: 'Walnut',
       color: '#443028'
       },
-      {name: 'chery',
+      {name: 'Chery',
        color: '#95552f'
       },
-      {name: 'maple',
+      {name: 'Maple',
        color: '#f4d7af'
       },
-      {name: 'apple',
+      {name: 'Apple',
       color: '#cf7e4f'
       },
       {name: 'Ash',
-      color: '#ebe2d3'
+      color: '#ebe2d5'
       }
 
   ]
   constructor() { }
-    public layershow: boolean = false; //для показу компонетів
-    public editLayer: number = null;
-  public totalWidth: number = 0; // загальна ширина щита
-  public heightBoard: any[] = []; // висота щита
-  public  clickeditem: number[]=[]; //номер щита під час додавання ділянок
+     zoomvalue: number = 0;
+    layershow: boolean = false; //для показу компонетів
+    editLayer: number = null; //номер щита редагування
+   totalWidth: number = 0; // загальна ширина щита
+   heightBoard: any[] = []; // висота щита
+    clickeditem: number[]=[]; //номер щита під час додавання ділянок
 
-  public layer: Layer[] = []; // один щит
-  public finalLayer: any[]=[]; // масив щитів
-  public board: any[] = []; //масив ділянок дошки
+   layer: Layer[] = []; // один щит
+  finalLayer: any[]=[]; // масив щитів
+   board: any[] = []; //масив ділянок дошки
 
   addItemLayer(width: number, color: string, name: string){
    this.layer.push(new Layer(width, color, name));

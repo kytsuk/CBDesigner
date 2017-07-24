@@ -19,7 +19,6 @@ import { BoardComponent } from './board/board.component';
     HeaderComponent,
     LayerComponent,
     ShowLayerComponent,
-    PanelComponent,
     ListLayerComponent,
     BoardComponent
   ],
@@ -29,7 +28,8 @@ import { BoardComponent } from './board/board.component';
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {path: '' , component: HeaderComponent },
+      {path: '' , component: HeaderComponent, pathMatch: 'full' },
+      //{path: 'home', component: HeaderComponent},
       {path: 'panel', component: LayerComponent}
       // {path: 'layer', component: LayerComponent}
     ])

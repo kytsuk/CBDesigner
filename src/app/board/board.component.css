@@ -8,3 +8,12 @@
 .active-block{
     border:1px solid red ;
 }
+.deactivate{
+    border: none;
+}
+.zooming{
+    display: flex;
+}
+.zooming button{
+    margin-left: 25px;
+}
