@@ -1,22 +1,28 @@
 
   <div class="   show-list">
     <div *ngFor="let l of boardservise.finalLayer, let i = index" class="vertical-padding" >
-      <div class="col-xs-7 row">
-          <div *ngFor="let y of boardservise.finalLayer[i], let k = index" class="  board-layer " >
-              <div class=" ">
-                  <div class=" board-layer-item "
-                       [ngStyle]="{'background': boardservise.finalLayer[i][k].color, 'height': boardservise.finalLayer[i][k].width+'px'}">
-                      {{boardservise.finalLayer[i][k].name}}
-                  </div>
+      <div class=" row">
+          <div class="col-xs-5">
+              <div *ngFor="let y of boardservise.finalLayer[i], let k = index" class="  board-layer " >
+                  <div class=" row">
+                      <div class=" board-layer-item "
+                           [ngStyle]="{'background': boardservise.finalLayer[i][k].color, 'height': boardservise.finalLayer[i][k].width+'px'}">
+                          {{boardservise.finalLayer[i][k].name}}
+                      </div>
 
+                  </div>
               </div>
           </div>
+
       </div>
 
-        <div class="row form-group  button">
-            <button class="btn bg-danger" (click)="removeLayer(i)">Remove</button>
-            <button class="btn bg-info" (click)="editLayer(i)">Edit</button>
-            <button class="btn bg-warning" (click)="addItem(i)">Add Item</button>
+        <div class="row button">
+            <div class="form-group  ">
+                <button class="btn bg-danger" (click)="removeLayer(i)">Remove</button>
+                <button class="btn bg-info" (click)="editLayer(i)">Edit</button>
+                <button class="btn bg-warning" (click)="addItem(i)">Add Item</button>
+            </div>
+
         </div>
     </div>
   </div>

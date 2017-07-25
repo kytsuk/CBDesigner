@@ -28,7 +28,7 @@ export class ShowLayerComponent implements OnInit {
     }
 
     changeWood(name,i){
-        let lengthLayer = this.boardservise.layer.length;
+        let lengthLayer = this.boardservise.colorLayer.length;
         for(let j = 0; j < lengthLayer; j++){
             if(this.boardservise.colorLayer[j].name == name.value){
                 this.boardservise.layer[i].color = this.boardservise.colorLayer[j].color;
@@ -50,7 +50,7 @@ export class ShowLayerComponent implements OnInit {
         } else {
             this.boardservise.finalLayer[edit] = this.boardservise.layer
             this.boardservise.editLayer = null;
-            this.boardservise.heightBoard[edit] = height.value;
+            this.boardservise.heightBoard[edit] = +height.value;
         }
         this.boardservise.layershow = false;
 

@@ -1,0 +1,8 @@
+<div class="row">
+  <div *ngIf="boardservise.board.length" class="zooming">
+    <span class="glyphicon glyphicon-zoom-out" ></span>
+    <input type="range" max="20" value=0 #zoom name="zoom" (change)="zooming(zoom)">
+    <span class="glyphicon glyphicon-zoom-in" ></span>
+    <button class="btn btn bg-danger pull-right" (click)="clearCanvas()"><span class="glyphicon glyphicon-refresh"></span></button>
+  </div>
+</div>

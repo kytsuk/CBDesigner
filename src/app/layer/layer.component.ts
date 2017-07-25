@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BoardService} from "../board.service";
+import {DataService} from "../data.service";
 
-import { Layer} from "../board.model";
 
 @Component({
   selector: 'app-layer',
@@ -10,7 +10,7 @@ import { Layer} from "../board.model";
 })
 export class LayerComponent implements OnInit {
 
-  constructor(public boarfservise: BoardService) { }
+  constructor(public boarfservise: BoardService, private data: DataService) { }
   colors = this.boarfservise.colorLayer;
   public selected: number;
   width: number;
@@ -25,7 +25,17 @@ export class LayerComponent implements OnInit {
     layerAdd(){
  this.show = !this.show;
     this.boarfservise.layershow = !this.boarfservise.layershow;
+    }
+    SaveFile(){
+       let array = JSON.stringify([this.boarfservise.board, this.boarfservise.finalLayer, this.boarfservise.clickeditem, this.boarfservise.heightBoard]);
+
+        let file = new Blob([array], {type: "application/json"});
+        let url  = URL.createObjectURL(file);
+
+        var a = document.createElement('a');
+        a.download    = "board.brd";
+        a.href        = url;
+        a.click();
 
     }
-
 }

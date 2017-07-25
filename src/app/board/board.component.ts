@@ -14,11 +14,7 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
   }
-  clearCanvas(){
-    this.boardservise.board.splice(0);
-    this.showPanelInst = false;
-    this.boardservise.clickeditem.splice(0);
-    }
+
   showComand(i){
     let Select= this.el.nativeElement.querySelector('#row'+ i)
     if (this.clickedItemBoard == null){
@@ -59,7 +55,9 @@ export class BoardComponent implements OnInit {
       let chCliked = this.boardservise.clickeditem[i];
       this.boardservise.clickeditem[i] = this.boardservise.clickeditem[i-1];
       this.boardservise.clickeditem[i-1] = chCliked;
-      this.clickedItemBoard -= 1;
+      this.showComand(i);
+      //this.showComand(i-1);
+
     }
 
   }
@@ -75,34 +73,25 @@ export class BoardComponent implements OnInit {
       let chCliked = this.boardservise.clickeditem[i];
       this.boardservise.clickeditem[i] = this.boardservise.clickeditem[i+1];
       this.boardservise.clickeditem[i+1] = chCliked;
-      this.clickedItemBoard += 1;
+      this.showComand(i);
+      //this.showComand(i+1);
+
       }
   }
   rotate(){
    let i = this.clickedItemBoard;
-  let item: any[] = this.boardservise.board[i];
+   let item: any[] = this.boardservise.board[i];
     let revArr = new Array;
      for(let k = item.length-1; k>=0 ; k--){
       revArr.push(item[k]);
      }
     this.boardservise.board[i] = revArr;
-    this.showPanelInst = !this.showPanelInst;
-    this.showComand(i)
+    this.showComand(i);
+    this.clickedItemBoard = null;
      }
-  zooming(zoom){
 
-    for(let i = 0; i < this.boardservise.board[0].length; i++){
-       if(+zoom.value > this.boardservise.zoomvalue){
-        this.boardservise.heightBoard[i] += +zoom.value;
-         let plus = +zoom.value - this.boardservise.zoomvalue
-         this.boardservise.board[0][i].width = +this.boardservise.board[0][i].width + plus ;
-        } else{
-         let minus = this.boardservise.zoomvalue - +zoom.value
-          this.boardservise.board[0][i].width = +this.boardservise.board[0][i].width - minus ;
-         this.boardservise.heightBoard[i] -= +zoom.value;
-      }
-    }
-    this.boardservise.zoomvalue = +zoom.value;
-
+  refreshCanvas(event){
+    this.showPanelInst = event;
+    this.clickedItemBoard = null
   }
 }

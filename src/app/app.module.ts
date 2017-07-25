@@ -9,9 +9,11 @@ import { LayerComponent } from './layer/layer.component';
 import {BoardService} from "./board.service";
 import { ShowLayerComponent } from './show-layer/show-layer.component';
 import {RouterModule} from "@angular/router";
-import { PanelComponent } from './core/panel/panel.component';
+
 import { ListLayerComponent } from './list-layer/list-layer.component';
 import { BoardComponent } from './board/board.component';
+import { ZoomComponent } from './zoom/zoom.component';
+import {DataService} from "./data.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { BoardComponent } from './board/board.component';
     LayerComponent,
     ShowLayerComponent,
     ListLayerComponent,
-    BoardComponent
+    BoardComponent,
+    ZoomComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { BoardComponent } from './board/board.component';
       // {path: 'layer', component: LayerComponent}
     ])
   ],
-  providers: [BoardService],
+  providers: [BoardService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
