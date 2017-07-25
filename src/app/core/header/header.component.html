@@ -3,10 +3,13 @@
     <nav>
       <ul class="nav nav-pills header">
         <li role="presentation" ><a routerLink="/panel"><span class="glyphicon glyphicon-file"> New</span></a></li>
-        <li role="presentation"><a  ><span class="glyphicon glyphicon-open-file">Open
-        <input type="file" id="fileInput" (change)="open($event)">
+        <li role="presentation"><a  (click)="clickInput(inputFile)"><span class="glyphicon glyphicon-open-file">Open
+          <label>
+             <input type="file" id="fileInput" (change)="open($event)" class="input" #inputFile>
+          </label>
+
         </span></a></li>
-        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-save-file">Save</span></a></li>
+
       </ul>
 
     </nav>

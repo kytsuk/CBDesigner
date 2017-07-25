@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BoardService} from "../board.service";
-import {DataService} from "../data.service";
+import * as FileSaver from 'file-saver';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {DataService} from "../data.service";
 })
 export class LayerComponent implements OnInit {
 
-  constructor(public boarfservise: BoardService, private data: DataService) { }
+  constructor(public boarfservise: BoardService) { }
   colors = this.boarfservise.colorLayer;
   public selected: number;
   width: number;
@@ -32,10 +32,10 @@ export class LayerComponent implements OnInit {
         let file = new Blob([array], {type: "application/json"});
         let url  = URL.createObjectURL(file);
 
-        var a = document.createElement('a');
-        a.download    = "board.brd";
-        a.href        = url;
-        a.click();
-
+        // var a = document.createElement('a');
+        // a.download    = "board.brd";
+        // a.href        = url;
+        // a.click();
+    FileSaver.saveAs(file, 'cutting-board.brd');
     }
 }

@@ -1,5 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BoardService} from "../../board.service";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-header',
@@ -7,12 +9,17 @@ import {BoardService} from "../../board.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  //@ViewChild('fileInput') el:ElementRef;
 
-  constructor(private boardservise: BoardService) { }
+
+  constructor(private boardservise: BoardService, private router: Router) { }
 
   ngOnInit() {
   }
+  clickInput(inputFile){
+
+    inputFile.click();
+  }
+
   open(e){
     var file = e.target.files[0];
     let blob = new Blob([file], {type: 'text/json'});
@@ -24,11 +31,10 @@ export class HeaderComponent implements OnInit {
         this.boardservise.finalLayer = array[1];
         this.boardservise.clickeditem = array[2];
         this.boardservise.heightBoard = array[3];
-        console.log(array);
 
       }
     reader.readAsText(blob);
 
-
+   this.router.navigate(['panel']);
   }
 }
