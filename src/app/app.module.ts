@@ -16,6 +16,7 @@ import { ZoomComponent } from './zoom/zoom.component';
 import {DataService} from "./data.service";
 import { ImageComponent } from './image/image.component';
 import { ReportComponent } from './report/report.component';
+import { D3BoardComponent } from './d3-board/d3-board.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReportComponent } from './report/report.component';
     BoardComponent,
     ZoomComponent,
     ImageComponent,
-    ReportComponent
+    ReportComponent,
+    D3BoardComponent
 
 
   ],
@@ -38,7 +40,7 @@ import { ReportComponent } from './report/report.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '' , component: HeaderComponent, pathMatch: 'full' },
-      //{path: 'home', component: HeaderComponent},
+      {path: '3D-board', component: D3BoardComponent},
       {path: 'panel', component: LayerComponent},
        {path: 'total', component: ReportComponent}
     ])
