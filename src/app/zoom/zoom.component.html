@@ -1,8 +1,26 @@
-<div class="row">
-  <div *ngIf="boardservise.board.length" class="zooming">
-    <span class="glyphicon glyphicon-zoom-out" ></span>
-    <input type="range" max="20" value=0 #zoom name="zoom" (change)="zooming(zoom)">
+<div class="row" *ngIf="showzoom">
+  <h6 class="text-center">Resize board <span>(+- 1 mm)</span></h6>
+
+</div>
+
+<div class="row" *ngIf="showzoom">
+
+  <div  class=" zooming">
+       <span class="glyphicon glyphicon-zoom-out" ></span>
+    <input id="range" class="btn btn-primary" type="range" min="-20" max="20" value=0 #zoom [disabled] = "showRange"
+            (change)="[zoomingHeight(zoom.value, height.checked), zoomingWidth(zoom.value, width.checked)]">
     <span class="glyphicon glyphicon-zoom-in" ></span>
-    <button class="btn btn bg-danger pull-right" (click)="clearCanvas()"><span class="glyphicon glyphicon-refresh"></span></button>
-  </div>
+      <output class=" pull-right output">{{zoom.value}}</output>
+    </div>
+
+   <div class="form-group ">
+       <form class="form-control resize" (change)="disabledRange(height, width)">
+           <label for=""> Resize Height</label>
+           <input type="checkbox" #height>
+           <label for=""> Resize width</label>
+           <input type="checkbox" #width>
+           <button class="btn btn-warning pull-right " (click)="originSize(zoom)">Original size</button>
+       </form>
+
+   </div>
 </div>

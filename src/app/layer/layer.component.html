@@ -1,32 +1,39 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <nav>
-      <ul class="nav nav-pills header ">
-        <li role="presentation" ><button (click)="layerAdd()"
-                                         [disabled]="show"
-                                          class="btn btn-info">
-          <span class="glyphicon glyphicon-plus">Add Layer
-          </span></button></li>
-        <li role="presentation" ><button routerLink=""  class="btn btn-info"><span class="glyphicon glyphicon-refresh"> Refresh</span></button></li>
-        <li role="presentation"><button (click)="SaveFile()" id="content" class="btn btn-info"><span class="glyphicon glyphicon-print">Save</span></button></li>
-        <li role="presentation"><button href="#"  class="btn btn-info"><span class="glyphicon glyphicon-save-file">Total</span></button></li>
-      </ul>
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-bookmark"></span> End grain cuttin board designer</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6 col-md-6">
+              <a (click)="layerAdd()"  class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Add Layer</a>
+              <a href="#" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-refresh"></span> <br/>Refresh</a>
+              <a (click)="SaveFile()" id="content" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-save"></span> <br/>Save</a>
+              <a routerLink="/total" *ngIf="boardservise.Image" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-info-sign"></span> <br/>Total info</a>
+            </div>
 
-    </nav>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
   <div class="layer-add" *ngIf="show">
-    <form class="form-group">
+    <form class="form-group" #myForm="ngForm">
       <div class="form-control">
         <label for=""> Width part, mm</label>
-        <input type="text"  name="width" [(ngModel)]="width" class="">
+        <input type="text"  name="width" [(ngModel)]="width"  required>
         <label> Change wood</label>
-        <select  name="color"  [(ngModel)]="selected" #color="ngModel" >
+        <select  name="color"  [(ngModel)]="selected" #color="ngModel" class=" " required>
           <option *ngFor="let col of colors; let i = index" [value]="i" >
             {{col.name}}
           </option>
         </select>
-        <div *ngIf="selected" class=" color" [ngStyle]="{'background': colors[selected].color}"></div>
-        <button class="btn btn-success" (click)="AddItemLayer()">Add  Layer Item</button>
+        <div *ngIf="selected" class=" color" [ngStyle]="{ 'background-image': 'url(' + colors[selected].color + ')'}"></div>
+        <button class="btn btn-success" (click)="AddItemLayer()" [disabled]="myForm.invalid">Add  Layer Item</button>
 
       </div>
 
@@ -34,15 +41,21 @@
     </form>
   </div>
   <div class="row">
-    <div class="row col-xs-6">
+    <div class="row col-xs-5">
       <app-show-layer></app-show-layer>
       <app-list-layer></app-list-layer>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-7">
       <app-board></app-board>
     </div>
   </div>
-
 </div>
+
+
+
+
+
+
+
 
 

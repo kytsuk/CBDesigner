@@ -8,7 +8,7 @@ import {BoardService} from "../board.service";
 })
 export class ListLayerComponent implements OnInit {
 
-  constructor(private boardservise: BoardService) { }
+  constructor(public boardservise: BoardService) { }
 
   ngOnInit() {
   }
@@ -26,6 +26,15 @@ export class ListLayerComponent implements OnInit {
     this.boardservise.layer = this.boardservise.finalLayer[i];
     this.boardservise.layershow = !this.boardservise.layershow;
     this.boardservise.editLayer = i;
-
+    for (let j=0; j< this.boardservise.finalLayer[i].length; j++){
+      this.boardservise.totalWidth += +this.boardservise.finalLayer[i][j].width
+    }
+  }
+  layerWidth(i):number{
+    let width: number = 0;
+    for (let j=0; j< this.boardservise.finalLayer[i].length; j++){
+     width += +this.boardservise.finalLayer[i][j].width;
+    }
+    return width;
   }
 }

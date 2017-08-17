@@ -1,6 +1,7 @@
-.board{
+.board {
     border-left: 0.01em solid black;
     border-top: 0.01em solid black;
+    border-bottom: 0.01em solid black;
 }
 .cut-board{
     display: inline-block;
@@ -10,4 +11,11 @@
 }
 .deactivate{
     border: none;
+}
+#board{
+    display: inline-block;
+}
+.panel-footer{
+    padding-bottom: 20px;
+    transform: rotate(90);
 }

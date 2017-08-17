@@ -1,37 +1,87 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {BoardService} from "../board.service";
+import {until} from "selenium-webdriver";
+import elementIsDisabled = until.elementIsDisabled;
 
 @Component({
   selector: 'app-zoom',
   templateUrl: './zoom.component.html',
   styleUrls: ['./zoom.component.css']
 })
+
 export class ZoomComponent implements OnInit {
-  @Output() refresh = new EventEmitter<boolean>();
-  constructor(private boardservise: BoardService) { }
+  showRange: boolean = true;
+  @Input() showzoom :boolean;
+  zoomValueHeight: number = 0;   //значення зуму попереднього
+  zoomValueWidth: number = 0;   //значення зуму попереднього
+  constructor(public boardservise: BoardService) {
+
+  }
 
   ngOnInit() {
+
   }
-  zooming(zoom){
+  zoomingHeight(zoom, height){
+   if(height){
+     let item:number[]=[];
+     let plus = +(+zoom - this.zoomValueHeight) ;
+     let minus = (this.zoomValueHeight - +zoom);
+     if(+zoom.value > this.zoomValueHeight) {
+       for (let i = 0; i < this.boardservise.board.length; i++) {
+         this.boardservise.heightBoard[i] +=  plus;
+        }
+     }
+     else
+     {
+       for (let i = 0; i < this.boardservise.board.length; i++) {
+             this.boardservise.heightBoard[i] -= minus;
+       }
+     }
+     this.zoomValueHeight = +zoom;
+   }
+  }
 
-    for(let i = 0; i < this.boardservise.board[0].length; i++){
-      if(+zoom.value > this.boardservise.zoomvalue){
-        let plus = +zoom.value - this.boardservise.zoomvalue
-        this.boardservise.heightBoard[i] += +zoom.value + plus;
-
-        this.boardservise.board[0][i].width = +this.boardservise.board[0][i].width + plus ;
-      } else{
-        let minus = this.boardservise.zoomvalue - +zoom.value
-        this.boardservise.board[0][i].width = +this.boardservise.board[0][i].width - minus ;
-        this.boardservise.heightBoard[i] -= +zoom.value + minus;
+  zoomingWidth(zoom, width){
+    if(width){
+      let item:number[]=[];
+      let plus = +(+zoom - this.zoomValueWidth) ;
+      let minus = (this.zoomValueWidth - +zoom);
+      for (let i = 0; i < this.boardservise.board.length; i++) {
+        item.push(+this.boardservise.board[i][0].width);
       }
+      if(+zoom.value > this.zoomValueWidth) {
+        for (let i = 0; i < this.boardservise.board.length; i++) {
+          for (let j = 0; j < this.boardservise.board[i].length; j++) {
+              this.boardservise.board[i][j].width = +item[i] + plus;
+            }
+        }
+      }
+      else
+      {
+        for (let i = 0; i < this.boardservise.board.length; i++) {
+
+            for (let j = 0; j < this.boardservise.board[i].length; j++) {
+              this.boardservise.board[i][j].width = +item[i] - minus;
+          }
+        }
+      }
+      this.zoomValueWidth = +zoom;
     }
-    this.boardservise.zoomvalue = +zoom.value;
+
+  }
+  originSize(zoom){
+    this.zoomingHeight(0, true);
+    this.zoomingWidth(0, true);
+    zoom.value = 0;
   }
 
-  clearCanvas(){
-    this.refresh.emit(false);
-    this.boardservise.board.splice(0);
-    this.boardservise.clickeditem.splice(0);
+  disabledRange(height, width){
+
+
+    if (!height.checked && !width.checked){
+     this.showRange = true
+    } else  {
+     this.showRange = false;
+    }
   }
 }

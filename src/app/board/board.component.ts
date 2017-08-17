@@ -1,6 +1,9 @@
 import {Component, ElementRef, OnInit,  Renderer} from '@angular/core';
 import {BoardService} from "../board.service";
-import {forEach} from "@angular/router/src/utils/collection";
+import * as html2canvas from 'html2canvas';
+
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-board',
@@ -10,7 +13,10 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class BoardComponent implements OnInit {
   public clickedItemBoard: number = null;
   public showPanelInst: boolean = false;
-  constructor(private boardservise: BoardService, private el : ElementRef, private render: Renderer) { }
+  public showboardImage: boolean = false;
+  showzoom: boolean = false;
+  showTotalBtn: boolean = true;
+  constructor(public boardservise: BoardService, private el : ElementRef, private render: Renderer, private router: Router) {}
 
   ngOnInit() {
   }
@@ -42,7 +48,6 @@ export class BoardComponent implements OnInit {
     this.showPanelInst = !this.showPanelInst;
     this.boardservise.clickeditem.splice(click,1);
     this.showComand(click)
-
   }
   moveLeft(){
     if(this.clickedItemBoard === 0){
@@ -56,8 +61,6 @@ export class BoardComponent implements OnInit {
       this.boardservise.clickeditem[i] = this.boardservise.clickeditem[i-1];
       this.boardservise.clickeditem[i-1] = chCliked;
       this.showComand(i);
-      //this.showComand(i-1);
-
     }
 
   }
@@ -74,7 +77,7 @@ export class BoardComponent implements OnInit {
       this.boardservise.clickeditem[i] = this.boardservise.clickeditem[i+1];
       this.boardservise.clickeditem[i+1] = chCliked;
       this.showComand(i);
-      //this.showComand(i+1);
+
 
       }
   }
@@ -90,8 +93,50 @@ export class BoardComponent implements OnInit {
     this.clickedItemBoard = null;
      }
 
-  refreshCanvas(event){
-    this.showPanelInst = event;
-    this.clickedItemBoard = null
+  refreshCanvas(){
+    this.showPanelInst = false;
+    this.clickedItemBoard = null;
+    this.showboardImage = false;
+    this.boardservise.board.splice(0);
+    this.boardservise.clickeditem.splice(0);
+  }
+  boardLenght():number{
+    let length: number = 0;
+    for(let i=0; i< this.boardservise.board.length; i++){
+      length+= +this.boardservise.heightBoard[this.boardservise.clickeditem[i]];
+    }
+    return length;
+  }
+  generateImg() {
+    var screenshot = new Image();
+    html2canvas(document.getElementById('board'), {
+      useCORS: true,
+      onrendered: function(canvas) {
+        screenshot.src = canvas.toDataURL( "image/jpeg" );
+      }
+    });
+    this.boardservise.Image = screenshot;
+    this.showboardImage = true;
+
+  }
+
+total(height, widthBlade, btntotal){
+    if(this.showTotalBtn){
+      this.boardservise.heightFinalBoard = +height.value;
+      this.boardservise.ticknesBlade = +widthBlade.value;
+      this.generateImg();
+      this.showTotalBtn = !this.showTotalBtn;
+      btntotal.textContent = 'Go to report';
+    }else {
+      this.showTotalBtn = !this.showTotalBtn;
+      btntotal.textContent = 'Generate report';
+      this.router.navigate(['/total']);
+    }
+}
+  zoomPanel(resize){
+  this.showzoom = !this.showzoom;
+  if(this.showzoom){
+    resize.textContent = 'Hidden panel';
+  } else resize.textContent = 'Board resize';
   }
 }

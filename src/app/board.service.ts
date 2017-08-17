@@ -3,41 +3,49 @@ import { Layer} from './board.model';
 
 @Injectable()
 export class BoardService {
-  colorLayer: any[] = [
+  public colorLayer: any[] = [
       {name: 'Oak',
-       color: '#806517'
+       color: '../../assets/image/oak/oak-layer.jpg',
+       urlEnd: '../../assets/image/oak/oak-end'
       },
       {name: 'Walnut',
-      color: '#443028'
+          color: '../../assets/image/walnut/walnut-layer.jpg',
+          urlEnd: '../../assets/image/walnut/walnut-end'
       },
       {name: 'Chery',
-       color: '#95552f'
+          color: '../../assets/image/cherry/cherry-layer.jpg',
+          urlEnd: '../../assets/image/cherry/cherry-end'
       },
       {name: 'Maple',
-       color: '#f4d7af'
+          color: '../../assets/image/maple/maple-layer.jpg',
+          urlEnd: '../../assets/image/maple/maple-end'
       },
       {name: 'Apple',
-      color: '#cf7e4f'
+      color: '../../assets/image/apple/apple-layer.jpg',
+      urlEnd: '../../assets/image/apple/apple-end'
       },
       {name: 'Ash',
-      color: '#ebe2d5'
+          color: '../../assets/image/ash/ash-layer.jpg',
+          urlEnd: '../../assets/image/ash/ash-end'
       }
 
   ]
   constructor() { }
-     zoomvalue: number = 0;
+
     layershow: boolean = false; //для показу компонетів
     editLayer: number = null; //номер щита редагування
    totalWidth: number = 0; // загальна ширина щита
    heightBoard: any[] = []; // висота щита
     clickeditem: number[]=[]; //номер щита під час додавання ділянок
+  heightFinalBoard:number; //висота дошки
+    ticknesBlade: number; //товщина пили
 
    layer: Layer[] = []; // один щит
   finalLayer: any[]=[]; // масив щитів
    board: any[] = []; //масив ділянок дошки
-
-  addItemLayer(width: number, color: string, name: string){
-   this.layer.push(new Layer(width, color, name));
+    Image :any;
+  addItemLayer(width: number, color: string, name: string, urlEnd: string){
+   this.layer.push(new Layer(width, color, name, urlEnd +this.randomise() +'.jpg'));
    this.totalWidth += +width;
 
   }
@@ -45,5 +53,8 @@ export class BoardService {
       this.finalLayer.push(newlayer);
 
    }
-
+    randomise(){
+        let ran = +(Math.random()*3).toFixed(0) ;
+        return ran;
+    }
 }

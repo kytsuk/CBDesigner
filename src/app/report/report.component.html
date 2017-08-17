@@ -1,0 +1,91 @@
+<div class="container-fluid" id="total">
+  <div class="row layer-infos cyruxx" style="display: block" *ngIf="boardservise.finalLayer.length">
+    <div class="col-xs-12  ">
+      <div class="panel panel-primary">
+
+        <div class="panel-heading">
+          <h3>Report information</h3>
+        </div>
+        <div class="panel-footer ">
+          <div>
+            <button class="btn btn-info pull-left" routerLink="/panel">Go to back</button>
+            <button class="btn btn-success pull-right" (click)="saveImg()">Save Image </button>
+            <button class="btn btn-success pull-right" (click)="saveReport()">Save Report</button>
+            <button class="btn btn-success pull-right" (click)="print()">Print</button>
+          </div>
+
+        </div>
+        <div class="panel panel-primary layer" *ngFor="let l of boardservise.finalLayer, let i = index">
+          <div class="panel-heading">
+            <h3 class="panel-title">Layer {{i+1}} information</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-3 col-lg-3 col-xs-4">
+                <div >
+                  <div *ngFor="let y of boardservise.finalLayer[i], let k = index" class="  board-layer " >
+                    <div class=" row">
+                      <div class=" board-layer-item "
+                           [ngStyle]="{'background-image': 'url(' + boardservise.finalLayer[i][k].color + ')', 'height': boardservise.finalLayer[i][k].width+'px'}">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class=" col-md-9 col-lg-9 ">
+                <strong>wood report information</strong><br>
+                <table class="table table-user-information">
+                  <tbody>
+                  <tr class="table tab-content">
+                    <td><strong>Wood</strong></td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Width</strong></td>
+                    <td><strong>Height</strong></td>
+                    <td><strong>Amount</strong></td>
+                  </tr>
+                  <tr *ngFor="let y of totalBoard[i], let k = index">
+                    <td [ngStyle]="{'background-image': 'url(' + y.color + ')', 'height': '25px', 'width': '90px'}" >
+
+                    </td>
+                    <td>
+                       {{y.name}}
+                    </td>
+                    <td>
+                      {{y.width}}
+                    </td>
+                    <td>
+                      {{boardservise.heightBoard[i]}}
+                    </td>
+                    <td >
+                      {{y.count}}
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-footer" >
+
+            <label for="" >
+              <i class="total">Total length layer =</i>
+              <span>{{layerLenght(i)}} </span>  <i> mm  (+10mm)</i>
+            </label>
+
+            <span class="pull-right">
+
+          </span>
+          </div>
+
+        </div>
+        <div class="panel-footer">
+         <app-image [show]="true"></app-image>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

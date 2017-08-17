@@ -15,6 +15,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+  new(){
+  this.boardservise.board = [];
+    this.boardservise.finalLayer = [];
+    this.boardservise.heightBoard = [];
+    this.boardservise.clickeditem = [];
+  }
+
   clickInput(inputFile){
 
     inputFile.click();

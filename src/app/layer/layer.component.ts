@@ -10,24 +10,26 @@ import * as FileSaver from 'file-saver';
 })
 export class LayerComponent implements OnInit {
 
-  constructor(public boarfservise: BoardService) { }
-  colors = this.boarfservise.colorLayer;
+  constructor(public boardservise: BoardService) { }
+  colors = this.boardservise.colorLayer;
   public selected: number;
   width: number;
   show: boolean;
   ngOnInit() {
-    this.show = this.boarfservise.layershow;
+    this.show = this.boardservise.layershow;
   }
     AddItemLayer(){
-     this.boarfservise.addItemLayer(this.width, this.colors[this.selected].color, this.colors[this.selected].name);
+     this.boardservise.addItemLayer(this.width, this.colors[this.selected].color, this.colors[this.selected].name, this.colors[this.selected].urlEnd);
 
 }
     layerAdd(){
- this.show = !this.show;
-    this.boarfservise.layershow = !this.boarfservise.layershow;
+    this.show = true;
+    this.boardservise.layershow = !this.boardservise.layershow;
+
+
     }
     SaveFile(){
-       let array = JSON.stringify([this.boarfservise.board, this.boarfservise.finalLayer, this.boarfservise.clickeditem, this.boarfservise.heightBoard]);
+       let array = JSON.stringify([this.boardservise.board, this.boardservise.finalLayer, this.boardservise.clickeditem, this.boardservise.heightBoard]);
 
         let file = new Blob([array], {type: "application/json"});
         let url  = URL.createObjectURL(file);

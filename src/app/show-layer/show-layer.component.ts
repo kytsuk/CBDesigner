@@ -32,6 +32,7 @@ export class ShowLayerComponent implements OnInit {
         for(let j = 0; j < lengthLayer; j++){
             if(this.boardservise.colorLayer[j].name == name.value){
                 this.boardservise.layer[i].color = this.boardservise.colorLayer[j].color;
+                this.boardservise.layer[i].urlEnd = this.boardservise.colorLayer[j].urlEnd +this.boardservise.randomise()+'.jpg';
             }
         }
     }

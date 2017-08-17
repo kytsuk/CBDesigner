@@ -1,6 +1,5 @@
-.layer-add{
-    margin-bottom: 50px ;
-}
+
+
 .color{
     display: inline-block;
     border: 1px solid black;
@@ -9,9 +8,9 @@
     vertical-align: middle;
 
 }
-.form-group{
-    margin-top: 20px;
-}
+
 .form-control{
     height: auto;
+
 }
+.panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }

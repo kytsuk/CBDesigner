@@ -5,3 +5,46 @@
 .input{
     display: none;
 }
+.main_menu_bg {
+    background: rgba(0, 0, 0, .45);
+    height: 80px;
+}
+.navbar a{
+    color: white;
+}
+.navbar-nav>li>a:hover {
+    color: #da9b31;
+    background: none;
+    }
+
+.our_logo{
+    margin-bottom: 15px;
+}
+.our_logo img {
+    width: 70%;
+}
+.slider  {
+    background: url(../../../assets/image/page/background.jpg) center center no-repeat;
+    background-size: cover;
+     height: 100vh;
+}
+.main_slider_content {
+    padding: 200px 0px 200px 0px;
+    width: 70%;
+    margin: 0 auto;
+    color: #fff;
+    font-size:2rem;
+}
+ .main_slider_content h1 {
+    font-size: 6rem;
+    font-family: 'Pacifico', cursive;
+    color: darkred;
+    line-height: 6rem;
+    margin: 0px 0px 60px 0px;
+     text-shadow: white 2px 2px;
+}
+.main_slider_content button{
+    font-size: 38px;
+    border-radius : 50%;
+    padding: 60px 45px;
+}

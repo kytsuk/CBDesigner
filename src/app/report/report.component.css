@@ -1,0 +1,16 @@
+.layer{
+    margin-top: 20px;
+}
+.board-layer-item{
+    border: 0.5px solid black;
+    border-top: none;
+}
+.panel-footer{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background: none;
+
+}
+.panel-footer button{
+    margin: 0 10px;
+}

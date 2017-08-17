@@ -14,6 +14,8 @@ import { ListLayerComponent } from './list-layer/list-layer.component';
 import { BoardComponent } from './board/board.component';
 import { ZoomComponent } from './zoom/zoom.component';
 import {DataService} from "./data.service";
+import { ImageComponent } from './image/image.component';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,11 @@ import {DataService} from "./data.service";
     ShowLayerComponent,
     ListLayerComponent,
     BoardComponent,
-    ZoomComponent
+    ZoomComponent,
+    ImageComponent,
+    ReportComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -33,8 +39,8 @@ import {DataService} from "./data.service";
     RouterModule.forRoot([
       {path: '' , component: HeaderComponent, pathMatch: 'full' },
       //{path: 'home', component: HeaderComponent},
-      {path: 'panel', component: LayerComponent}
-      // {path: 'layer', component: LayerComponent}
+      {path: 'panel', component: LayerComponent},
+       {path: 'total', component: ReportComponent}
     ])
   ],
   providers: [BoardService, DataService],

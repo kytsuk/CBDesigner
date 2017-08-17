@@ -4,3 +4,16 @@
 .zooming button{
     margin-left: 25px;
 }
+.resize {
+    margin-top: 15px;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+}
+.output{
+   padding: 0 25px;
+    margin-left: 50px;
+    margin-right: 15px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid  #337ab7;
+}
