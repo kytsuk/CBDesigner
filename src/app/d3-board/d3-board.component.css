@@ -1,0 +1,13 @@
+body{
+
+
+}
+.panel-footer{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background: none;
+
+}
+.panel-footer button{
+    margin: 0 10px;
+}

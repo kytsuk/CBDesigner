@@ -77,8 +77,6 @@ export class BoardComponent implements OnInit {
       this.boardservise.clickeditem[i] = this.boardservise.clickeditem[i+1];
       this.boardservise.clickeditem[i+1] = chCliked;
       this.showComand(i);
-
-
       }
   }
   rotate(){
@@ -127,9 +125,12 @@ total(height, widthBlade, btntotal){
       this.generateImg();
       this.showTotalBtn = !this.showTotalBtn;
       btntotal.textContent = 'Go to report';
+
+      document.getElementById("btntot").setAttribute('class', 'btn btn-success')
     }else {
       this.showTotalBtn = !this.showTotalBtn;
       btntotal.textContent = 'Generate report';
+      document.getElementById("btntot").setAttribute('class', 'btn-warning')
       this.router.navigate(['/total']);
     }
 }

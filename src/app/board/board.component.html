@@ -44,13 +44,14 @@
                     <input name="heightBoard" #height="ngModel" [ngModel]="boardservise.heightFinalBoard" required>
                     <label>Input thickness blade - mm</label>
                     <input name="widthBlade" #widthBlade="ngModel" [ngModel]="boardservise.ticknesBlade" required>
-                    <button  (click)="total(height, widthBlade, btntotal )" class="btn btn-warning " #btntotal
-                             [disabled]="height.invalid || widthBlade.invalid">Generate report</button>
+
 
                 </div>
                <div>
-                   <button  class="btn btn-warning " (click)="generateImg()">Generate image</button>
-
+                   <button  class="btn btn-info " routerLink="/3D-board" [disabled]="!boardservise.Image">3D board</button>
+                   <button  (click)="total(height, widthBlade, btntotal )" class="btn btn-warning " #btntotal id="btntot"
+                            [disabled]="height.invalid || widthBlade.invalid"
+                            >Generate report</button>
                </div>
 
             </div>
@@ -62,4 +63,3 @@
   </div>
 </div>
 
-<app-image [show]="showboardImage " ></app-image>
