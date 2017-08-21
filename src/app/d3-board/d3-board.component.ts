@@ -32,13 +32,12 @@ export class D3BoardComponent implements AfterViewInit {
   }
   private createScene() {
     this.scene = new THREE.Scene();
+    this.scene.position.set(100,230,200);
 
-    this.camera =new THREE.PerspectiveCamera( 55, window.innerWidth / window.innerHeight , 0.1, 1000 );
-    this.camera.position.set(100, 300, 100);
-
+    this.camera =new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight , 0.1, 1000 );
+    this.camera.position.set(650,450,-200);
     this.camera.rotation.set(-2, 1, 2);
     this.camera.up.set(-30 , 100, 11);
-
 
 
       this.controls = new TrackballControls( this.camera, this.canvas);
@@ -48,6 +47,7 @@ export class D3BoardComponent implements AfterViewInit {
       this.controls.noPan = false;
       this.controls.staticMoving = false;
       this.controls.dynamicDampingFactor = 0.3;
+
 
 
 
@@ -78,7 +78,6 @@ export class D3BoardComponent implements AfterViewInit {
           texture4.minFilter = THREE.LinearFilter;
           texture5.minFilter = THREE.LinearFilter;
 
-
           var materials = [
               new THREE.MeshBasicMaterial({map: texture0}),
               new THREE.MeshBasicMaterial({map: texture1}),
@@ -105,7 +104,6 @@ export class D3BoardComponent implements AfterViewInit {
            }
      }
          if (i<this.boardservice.clickeditem.length) {
-
              let nextH = this.boardservice.heightBoard[this.boardservice.clickeditem[i+1]]
              positionWidth += +(height / 2 + nextH/2)
             }
@@ -119,7 +117,6 @@ export class D3BoardComponent implements AfterViewInit {
     let component: D3BoardComponent = this;
     (function render() {
       requestAnimationFrame(render);
-     // component.animateCube();
       component.animate();
       component.renderer.render(component.scene, component.camera);
     }());
@@ -130,16 +127,10 @@ export class D3BoardComponent implements AfterViewInit {
     var width = this.canvas.clientWidth;
     var height = this.canvas.clientHeight;
     this.renderer.setSize(width, height);
-       this.controls.handleResize();
+    this.controls.handleResize();
 }
     animate() {
-        // console.log(this.camera);
-        this.controls.update();
+           this.controls.update();
+    }
 
-    }
-    cameraview(){
-      console.log(this.controls);
-      console.log(this.camera);
-      console.log(this.scene)
-    }
 }
