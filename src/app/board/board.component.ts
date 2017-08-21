@@ -86,9 +86,10 @@ export class BoardComponent implements OnInit {
      for(let k = item.length-1; k>=0 ; k--){
       revArr.push(item[k]);
      }
-    this.boardservise.board[i] = revArr;
+    this.boardservise.board.splice(i, 1 , revArr) ;
     this.showComand(i);
     this.clickedItemBoard = null;
+
      }
 
   refreshCanvas(){

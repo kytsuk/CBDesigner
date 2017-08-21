@@ -34,6 +34,9 @@
     "pdfmake": "^0.1.32",
     "rxjs": "^5.1.0",
     "three": "^0.86.0",
+    "three-orbitcontrols-ts": "^0.1.2",
+    "three-trackballcontrols": "0.0.5",
+    "three.trackball": "0.0.1",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
