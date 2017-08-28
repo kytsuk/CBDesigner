@@ -1,23 +1,46 @@
-
 .board-layer{
-    border: 0.5px solid black;
-    border-top: none ;
+    border: 0.5px solid black;     border-top: none ;
 }
 .board-layer: {
     border: 0.5px solid black;
 }
 .total {
-    font-size: 12px;
-   color: brown;
+    font-size: 14px;    color: #da9b31;
 }
 .layer-infos{
-    margin-left: 0;
-    margin-right: 15px;
+    margin-left: 0;     margin-right: 15px;
 }
 .info{
-    display: inline-block;
-    border-bottom: 1px solid black;
+    display: inline-block;     border-bottom: 1px solid black;
 }
 .board{
-    margin-top: 20px;
+    margin-top: 20px;     border: 1px solid white;
+}
+.panel{
+    background: rgba(0, 0, 0, .45);     border: solid 1px white;
+    color: white;
+}
+.panel-title{
+    color: #da9b31;
+}
+.panel input, .panel select{
+    color: black;     border: 1px solid black;     border-radius: 5px;
+}
+.panel-footer{
+    background: rgba(0, 0, 0, .55);
+}
+.panel-heading{
+    background: rgba(0, 0, 0, .70);
+}
+.table-layer strong{
+    color: #da9b31;     margin-top: 10px;
+}
+.table>tbody>tr>td{
+    padding: 4px;     text-align: center;
+}
+.table-layer span{
+    color: red;
+}
+.btn-save{
+    background: #da9b31;     border: solid 1px white;
 }

@@ -24,15 +24,28 @@ export class D3BoardComponent implements AfterViewInit {
   directionalLight: THREE.Light;
   renderer: THREE.Renderer;
   controls: TrackballControls;
+
    constructor(public boardservice: BoardService){}
   ngAfterViewInit(){
      this.createScene();
      this.render();
      this.resize();
   }
-  private createScene() {
+   createScene() {
+      let widthboard: number = 0;
+      let lenghtboard: number = 0;
+      for (let i=0; i< this.boardservice.board[0].length; i++){
+          widthboard += +this.boardservice.board[0][i].width;
+      }
+      for(let i=0; i< this.boardservice.board.length; i++){
+          lenghtboard+= +this.boardservice.heightBoard[this.boardservice.clickeditem[i]];
+      }
+
     this.scene = new THREE.Scene();
-    this.scene.position.set(100,230,200);
+    this.scene.position.set(widthboard/2+150, lenghtboard/2 ,0);
+
+    var axisHelper = new THREE.AxisHelper( 750 );
+    this.scene.add( axisHelper );
 
     this.camera =new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight , 0.1, 1000 );
     this.camera.position.set(650,450,-200);
@@ -47,20 +60,18 @@ export class D3BoardComponent implements AfterViewInit {
       this.controls.noPan = false;
       this.controls.staticMoving = false;
       this.controls.dynamicDampingFactor = 0.3;
-
-
-
+      this.controls.target = this.scene.position;
 
 
     this.directionalLight = new THREE.DirectionalLight( 0xffffff, 0.7 );
     this.directionalLight.position.set( -20, 40, 60 ).normalize();
     this.scene.add(this.directionalLight);
 
-      let positionWidth: number = 0;
+      let positionWidth: number = -lenghtboard/2;
  for (let i = 0; i<this.boardservice.board.length; i++)
      {
          let height: number = this.boardservice.heightBoard[this.boardservice.clickeditem[i]];
-         let positionHeight: number = +(+this.boardservice.board[i][0].width/2);
+         let positionHeight: number = -widthboard/2;
 
       for (let j=0; j< this.boardservice.board[i].length; j++) {
           var textureLoader = new THREE.TextureLoader();
@@ -111,8 +122,7 @@ export class D3BoardComponent implements AfterViewInit {
 
   }
   render(){
-    this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, alpha: true,  antialias: true });
-
+    this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, alpha: true,  antialias: true});
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     let component: D3BoardComponent = this;
     (function render() {

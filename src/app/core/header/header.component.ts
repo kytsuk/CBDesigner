@@ -34,10 +34,13 @@ export class HeaderComponent implements OnInit {
 
       reader.onload = (e) => {
         let array = JSON.parse(reader.result);
-        this.boardservise.board = array[0];
+        //this.boardservise.board = array[0];
         this.boardservise.finalLayer = array[1];
         this.boardservise.clickeditem = array[2];
         this.boardservise.heightBoard = array[3];
+        for(let i=0; i<this.boardservise.clickeditem.length; i++){
+          this.boardservise.board.push( this.boardservise.finalLayer[this.boardservise.clickeditem[i]]);
+        }
 
       }
     reader.readAsText(blob);

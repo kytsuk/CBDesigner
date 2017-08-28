@@ -25,6 +25,7 @@
     "@types/lodash": "^4.14.71",
     "@types/three": "^0.84.19",
     "bootstrap": "^3.3.7",
+    "cordova": "^7.0.1",
     "core-js": "^2.4.1",
     "file-saver": "^1.3.3",
     "html2canvas": "^0.5.0-beta4",

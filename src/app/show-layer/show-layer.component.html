@@ -1,16 +1,16 @@
 
 
 
-  <div class="row layer-infos cyruxx" style="display: block" *ngIf="boardservise.layer.length">
+  <div class="row layer-infos cyruxx " style="display: block" *ngIf="boardservise.layer.length">
     <div class="col-xs-12  ">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Layer information</h3>
+          <h3 class="panel-title">Panel information</h3>
         </div>
         <div class="panel-footer  col-xs-12 info" >
           <div class=" pull-left">
               <form>
-                <i class="total">Total length layer =</i>
+                <i class="total">Total length panel =</i>
                 <span>{{boardservise.totalWidth}}</span>  <i> mm </i>
 
               </form>
@@ -18,52 +18,55 @@
           </div>
           <div class="pull-right ">
             <form #myForm="ngForm" >
-              <i class="total">Layer height, mm</i>
+              <i class="total">Panel height, mm</i>
               <input type="number"  name="height" required #layerheight style="width: 90px"
                      [value]="boardservise.heightBoard[boardservise.editLayer]">
-              <button class="btn btn-success" (click)="SaveLayer(layerheight)" [disabled]="myForm.invalid || layerheight.invalid">Save  </button>
+              <button class="btn btn-save" (click)="SaveLayer(layerheight)" [disabled]="myForm.invalid || layerheight.invalid">Save  </button>
             </form>
           </div>
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-md-3 col-lg-3 col-xs-4 board">
+            <div class=" col-xs-3 board">
               <div *ngFor="let ley of boardservise.layer"
                    class="board-layer"
                    [ngStyle]="{'background-image': 'url(' + ley.color + ')', 'height': ley.width+'px'}">
 
               </div>
             </div>
-            <div class=" col-md-9 col-lg-9 ">
-              <strong>Layer constructor</strong><br>
-              <table class="table table-user-information">
-                <tbody>
-                <tr>
-                  <td>Number:</td>
-                  <td>Wood</td>
-                  <td>Width</td>
-                  <td>Remove item</td>
-                </tr>
-                <tr *ngFor="let ley of boardservise.layer; let i = index">
-                  <td>
-                     <select [value]="i"  name="numberLayer" #numberLayer (change)="sortLayer(numberLayer, i)">
+            <div class="  col-xs-9 table-layer">
+              <strong>Panel constructor</strong><br>
+              <div class="table-responsive">
+                <table class="table table-user-information  ">
+                  <tbody>
+                  <tr>
+                    <td>Number:</td>
+                    <td>Wood</td>
+                    <td>Width</td>
+                    <td>Remove item</td>
+                  </tr>
+                  <tr *ngFor="let ley of boardservise.layer; let i = index">
+                    <td>
+                      <select [value]="i"  name="numberLayer" #numberLayer (change)="sortLayer(numberLayer, i)">
                         <option  *ngFor="let num of boardservise.layer; let y = index"  >{{y}}</option>
                       </select>
-                  </td>
-                  <td>
-                    <select [value]="boardservise.layer[i].name" [(ngModel)]="boardservise.layer[i].name" name="name" #name="ngModel" (change)=" changeWood(name,i)">
-                      <option *ngFor="let wood of boardservise.colorLayer"  >{{wood.name}}</option>
-                    </select>
-                  </td>
-                  <td>
-                    <input type="number" [value]="ley.width" [(ngModel)]="boardservise.layer[i].width" name="width" #width="ngModel" (change)="changeWidth()">
-                  </td>
-                  <td >
-                    <span class="glyphicon glyphicon-remove text-center" (click)="remove(i)"></span>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
+                    </td>
+                    <td>
+                      <select [value]="boardservise.layer[i].name" [(ngModel)]="boardservise.layer[i].name" name="name" #name="ngModel" (change)=" changeWood(name,i)">
+                        <option *ngFor="let wood of boardservise.colorLayer"  >{{wood.name}}</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input type="number" [value]="ley.width" [(ngModel)]="boardservise.layer[i].width" name="width" #width="ngModel" (change)="changeWidth()">
+                    </td>
+                    <td >
+                      <span class="glyphicon glyphicon-remove text-center" (click)="remove(i)"></span>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+
             </div>
           </div>
         </div>

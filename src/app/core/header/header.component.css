@@ -8,6 +8,7 @@
 .main_menu_bg {
     background: rgba(0, 0, 0, .45);
     height: 80px;
+
 }
 .navbar a{
     color: white;
@@ -27,6 +28,7 @@
     background: url(../../../assets/image/page/background.jpg) center center no-repeat;
     background-size: cover;
      height: 100vh;
+
 }
 .main_slider_content {
     padding: 200px 0px 200px 0px;

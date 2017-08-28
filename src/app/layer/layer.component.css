@@ -1,16 +1,69 @@
-
-
-.color{
+.color {
     display: inline-block;
     border: 1px solid black;
-    width: 60px;
+    width: 70px;
     height: 25px;
     vertical-align: middle;
-
-}
-
-.form-control{
-    height: auto;
-
+    border: 2px solid white;
 }
 .panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }
+.slider  {
+    background: url(../../assets/image/page/background.jpg) center center no-repeat;
+    background-size: cover;
+    height: 200vh;
+}
+.menu-layer{
+   background: rgba(0, 0, 0, .45);
+    background-size: contain ;
+    border: 1px solid white;
+    height: 80px;
+}
+.panel, .panel-heading{
+    background: none;
+    border: none;
+}
+.add-panel{
+    margin-top: 30px;
+}
+.panel-body{
+    padding: 0;
+}
+.panel-body h3{
+    font-size: 4rem;
+    font-family: 'Pacifico', cursive;
+    color: darkred;
+    line-height: 6rem;
+    vertical-align: middle;
+    text-shadow: white 2px 2px;
+    display: inline-block;
+    margin-top: 10px;
+}
+.panel-body a{
+    padding-left: 50px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.panel-body a span{
+    color: #da9b31;
+}
+.panel-body a:hover{
+    color: #da9b31;
+}
+.panel-body a span:hover{
+    color: white;
+}
+.btn-add{
+    background: #da9b31;
+    border: solid 1px white;
+}
+.form-control{
+    height: auto;     background: rgba(0, 0, 0, .55);     color: white;
+   }
+.form-control input, .form-control select{
+    color: black;
+}
+.form-control label{
+    font-weight: 400 ;
+}
