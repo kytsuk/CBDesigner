@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row ">
 
   <div class="panel panel-primary" *ngIf=" boardservise.board.length">
     <div class="panel-heading">
@@ -9,11 +9,12 @@
       <div >
 
 
-          <div class="panel">
+          <div class="panel-zoom">
               <app-zoom  [showzoom]="showzoom"></app-zoom>
-              <button class="btn btn-primary" (click)="zoomPanel(resize)" #resize >Resize Board</button>
-              <button class="btn btn bg-danger pull-right" (click)="refreshCanvas()"><span class="glyphicon glyphicon-refresh"></span></button>
+              <button class="btn btn-resize" (click)="zoomPanel(resize)" #resize >Resize Board</button>
+              <button class="btn btn-resize pull-right" (click)="refreshCanvas()"><span class="glyphicon glyphicon-refresh"></span></button>
           </div>
+
         <div id="board">
 
          <div *ngFor="let brd of boardservise.board; let i = index"
@@ -37,12 +38,12 @@
               <button class="btn btn-warning" (click)="removeItem()"><span class="glyphicon glyphicon-remove-circle" ></span></button>
           </div>
         <div *ngIf="boardservise.board.length" class="panel-footer">
-          <span>Board Lenght - {{boardLenght()}} mm</span>
+            <span>Board Lenght - <strong>{{boardLenght()}} mm</strong></span>
             <div>
                 <div>
-                    <label>Input Height board - mm</label>
+                    <label>Input Height board - <strong>mm</strong></label>
                     <input name="heightBoard" #height="ngModel" [ngModel]="boardservise.heightFinalBoard" required>
-                    <label>Input thickness blade - mm</label>
+                    <label>Input thickness blade - <strong>mm</strong></label>
                     <input name="widthBlade" #widthBlade="ngModel" [ngModel]="boardservise.ticknesBlade" required>
 
 

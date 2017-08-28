@@ -43,9 +43,9 @@ export class D3BoardComponent implements AfterViewInit {
 
     this.scene = new THREE.Scene();
     this.scene.position.set(widthboard/2+150, lenghtboard/2 ,0);
-
-    var axisHelper = new THREE.AxisHelper( 750 );
-    this.scene.add( axisHelper );
+    //
+    // var axisHelper = new THREE.AxisHelper( 750 );
+    // this.scene.add( axisHelper );
 
     this.camera =new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight , 0.1, 1000 );
     this.camera.position.set(650,450,-200);
@@ -54,7 +54,7 @@ export class D3BoardComponent implements AfterViewInit {
 
 
       this.controls = new TrackballControls( this.camera, this.canvas);
-      this.controls.rotateSpeed = 2.0;
+      this.controls.rotateSpeed = 3.0;
       this.controls.zoomSpeed = 1.2;
       this.controls.panSpeed = 0.8;
       this.controls.noPan = false;
@@ -71,7 +71,7 @@ export class D3BoardComponent implements AfterViewInit {
  for (let i = 0; i<this.boardservice.board.length; i++)
      {
          let height: number = this.boardservice.heightBoard[this.boardservice.clickeditem[i]];
-         let positionHeight: number = -widthboard/2;
+         let positionHeight: number = -widthboard/2 +(+this.boardservice.board[i][0].width/2);
 
       for (let j=0; j< this.boardservice.board[i].length; j++) {
           var textureLoader = new THREE.TextureLoader();

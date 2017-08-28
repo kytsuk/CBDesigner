@@ -44,7 +44,7 @@
     font-size: 14px;    color: #da9b31; font-weight: 500;
 }
 .btn-remove, .btn-add, .btn-edit{
-    background: #da9b31;
+    background: #da9b31; border: 1px solid white;
 }
 .btn-remove:hover{
     background: red;     color: white;
@@ -54,4 +54,7 @@
 }
 .btn-add:hover{
     background: green;      color: white;
+}
+.list-panel{
+    border: 1px solid white;
 }

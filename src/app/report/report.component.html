@@ -1,6 +1,6 @@
 <div class="container-fluid" id="total">
-  <div class="row layer-infos cyruxx" style="display: block" *ngIf="boardservise.finalLayer.length">
-    <div class="col-xs-12  ">
+  <div class="row  cyruxx" style="display: block" *ngIf="boardservise.finalLayer.length">
+    <div class="col-xs-12 layer-infos ">
       <div class="panel panel-primary">
 
         <div class="panel-heading">
@@ -8,17 +8,17 @@
         </div>
         <div class="panel-footer ">
           <div>
-            <button class="btn btn-info pull-left" routerLink="/panel">Go to back</button>
-            <button class="btn btn-info pull-left" routerLink="/3D-board">3D Board</button>
-            <button class="btn btn-success pull-right" (click)="saveImg()">Save Image </button>
-            <button class="btn btn-success pull-right" (click)="saveReport()">Save Report</button>
-            <button class="btn btn-success pull-right" (click)="print()">Print</button>
+            <button class="btn btn-report pull-left" routerLink="/panel">Go to back</button>
+            <button class="btn btn-report pull-left" routerLink="/3D-board">3D Board</button>
+            <button class="btn btn-report pull-right" (click)="saveImg()">Save Image </button>
+            <button class="btn btn-report pull-right" (click)="saveReport()">Save Report</button>
+            <button class="btn btn-report pull-right" (click)="print()">Print</button>
           </div>
 
         </div>
-        <div class="panel panel-primary layer" *ngFor="let l of boardservise.finalLayer, let i = index">
+        <div class="panel  layer" *ngFor="let l of boardservise.finalLayer, let i = index">
           <div class="panel-heading">
-            <h3 class="panel-title">Layer {{i+1}} information</h3>
+            <h3 class="panel-title">Panel {{i+1}} information</h3>
           </div>
           <div class="panel-body">
             <div class="row">
@@ -35,7 +35,7 @@
               </div>
 
 
-              <div class=" col-md-9 col-lg-9 ">
+              <div class=" col-md-9 col-lg-9 table-responsive">
                 <strong>wood report information</strong><br>
                 <table class="table table-user-information">
                   <tbody>
@@ -69,7 +69,7 @@
             </div>
           </div>
 
-          <div class="panel-footer" >
+          <div class="panel-heading" >
 
             <label for="" >
               <i class="total">Total length layer =</i>

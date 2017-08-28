@@ -35,3 +35,16 @@
 .panel-heading{
     background: rgba(0, 0, 0, .70);
 }
+.panel-footer label, .panel-footer span{
+    color: #da9b31;
+}
+.panel-footer strong{
+    color: white;
+}
+.panel-zoom{
+    margin-bottom: 20px;
+}
+.btn-resize{
+    background: #da9b31; color: white; border: 1px solid white;
+
+}

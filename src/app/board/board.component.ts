@@ -127,7 +127,7 @@ total(height, widthBlade, btntotal){
       this.showTotalBtn = !this.showTotalBtn;
       btntotal.textContent = 'Go to report';
 
-      document.getElementById("btntot").setAttribute('class', 'btn btn-success')
+
     }else {
       this.showTotalBtn = !this.showTotalBtn;
       btntotal.textContent = 'Generate report';
