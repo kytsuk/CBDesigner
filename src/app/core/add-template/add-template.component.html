@@ -1,0 +1,23 @@
+<div class="container-fluid add-bg">
+  <app-header></app-header>
+  <div class="container add">
+    <div class="row">
+          <div class="col-xs-12 panel">
+            <div class="panel-heading">
+              <h2>Image Template</h2>
+            </div>
+            <div class="panel">
+              <img *ngIf="boardservise.Image" [src]=boardservise.Image.src>
+            </div>
+
+          </div>
+      <div class="panel">
+        <button  routerLink="/panel" class="btn btn-warning">Go to panel</button>
+        <button class="btn btn-warning" (click)="saveTemplate()">Save Template</button>
+      </div>
+
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

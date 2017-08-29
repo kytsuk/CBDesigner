@@ -17,6 +17,15 @@ import {DataService} from "./data.service";
 import { ImageComponent } from './image/image.component';
 import { ReportComponent } from './report/report.component';
 import { D3BoardComponent } from './d3-board/d3-board.component';
+import { AboutBoardComponent } from './core/about-board/about-board.component';
+import { HomeComponent } from './core/home/home.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { TemplateComponent } from './core/template/template.component';
+
+import {AuthService} from "./auth/auth.service";
+import {AuthGuardService} from "./auth/auth-guard.service";
+import {AuthModule} from "./auth/auth.module";
+import {AddTemplateComponent} from "./core/add-template/add-template.component";
 
 @NgModule({
   declarations: [
@@ -29,8 +38,12 @@ import { D3BoardComponent } from './d3-board/d3-board.component';
     ZoomComponent,
     ImageComponent,
     ReportComponent,
-    D3BoardComponent
-
+    D3BoardComponent,
+    AboutBoardComponent,
+    HomeComponent,
+    FooterComponent,
+    TemplateComponent,
+    AddTemplateComponent
 
   ],
   imports: [
@@ -38,14 +51,18 @@ import { D3BoardComponent } from './d3-board/d3-board.component';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    AuthModule,
     RouterModule.forRoot([
-      {path: '' , component: HeaderComponent, pathMatch: 'full' },
+      {path: '' , component: HomeComponent, pathMatch: 'full' },
       {path: '3D-board', component: D3BoardComponent},
       {path: 'panel', component: LayerComponent},
-       {path: 'total', component: ReportComponent}
+       {path: 'total', component: ReportComponent},
+      {path: 'about', component: AboutBoardComponent},
+      {path: 'template', component: TemplateComponent},
+      {path: 'add-template', component: AddTemplateComponent, canActivate: [AuthGuardService]}
     ])
   ],
-  providers: [BoardService, DataService],
+  providers: [BoardService, DataService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

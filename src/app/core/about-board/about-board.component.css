@@ -1,0 +1,28 @@
+.about-bg{
+    background: url(../../../assets/image/page/background.jpg) center center ;
+    background-size: cover;
+
+}
+.about{
+    margin-top: 90px;
+}
+.featurette {
+    background: rgba(0, 0, 0, .45);
+    color: white; margin-bottom: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.featurette h2{
+    background: rgba(0, 0, 0, .65);
+    color: #da9b31; padding: 20px 20px; border: 1px solid white;
+    border-radius: 7px;
+}
+.text-section{
+    background: rgba(0, 0, 0, .50); padding: 20px 20px; margin-bottom: 20px; border: 1px solid white; border-radius: 5px;
+}
+.featurette-image{
+    margin-top: 20px; margin-bottom: 20px;
+}
+section{
+    margin-bottom: 30px;
+}

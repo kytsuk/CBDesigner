@@ -4,3 +4,19 @@
     margin-top: 15px;
 
 }
+.panel{
+    background: rgba(0, 0, 0, .45);     border: solid 1px white;
+    color: white;
+}
+.panel-title{
+    color: #da9b31;
+}
+.panel input, .panel select{
+    color: black;     border: 1px solid black;     border-radius: 5px;
+}
+.panel-footer{
+    background: rgba(0, 0, 0, .55);
+}
+.panel-heading{
+    background: rgba(0, 0, 0, .70);
+}

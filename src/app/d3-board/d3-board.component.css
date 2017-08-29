@@ -1,13 +1,32 @@
-body{
 
-
-}
 .panel-footer{
     margin-top: 20px;
     margin-bottom: 40px;
     background: none;
 
 }
-.panel-footer button{
-    margin: 0 10px;
+.panel-btn button{
+    margin: 0 10px; margin-top: 20px;
+}
+.panel{
+    background: rgba(0, 0, 0, .15);     border: solid 1px white;
+    color: white;
+}
+.panel-title{
+    color: #da9b31;
+}
+.panel input, .panel select{
+    color: black;     border: 1px solid black;     border-radius: 5px;
+}
+.panel-footer{
+    background: rgba(0, 0, 0, .55);
+}
+.panel-heading{
+    background: rgba(0, 0, 0, .70);  color: #da9b31;
+}
+.panel-body{
+    background: none;
+}
+.btn-d3{
+    background: #da9b31;     border: solid 1px white;
 }

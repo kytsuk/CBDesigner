@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BoardService} from "../../board.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../../auth/auth.service";
 
 
 @Component({
@@ -11,16 +12,11 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
 
 
-  constructor(private boardservise: BoardService, private router: Router) { }
+  constructor(private boardservise: BoardService, private router: Router, private authServise: AuthService) { }
 
   ngOnInit() {
   }
-  new(){
-  this.boardservise.board = [];
-    this.boardservise.finalLayer = [];
-    this.boardservise.heightBoard = [];
-    this.boardservise.clickeditem = [];
-  }
+
 
   clickInput(inputFile){
 

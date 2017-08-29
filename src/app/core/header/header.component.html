@@ -1,6 +1,6 @@
 
 
-<header id="home" class="navbar-fixed-top slider">
+<div id="header" class="navbar-fixed-top slider">
     <!-- End navbar-collapse-->
 
   <div class="main_menu_bg">
@@ -12,16 +12,15 @@
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="glyphicon glyphicon-align-justify"></span>
+
               </button>
 
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <a class="navbar-brand our_logo" href="#"><img src="../../../assets/image/page/logo.png" alt="" ></a>
+              <a class="navbar-brand our_logo" routerLink="/"><img src="../../../assets/image/page/logo.png" alt="" ></a>
               <ul class="nav navbar-nav navbar-right">
                 <li  ><a routerLink="/panel" (click)="new()"> New</a></li>
                 <li ><a  (click)="clickInput(inputFile)" style="cursor: pointer">Open
@@ -29,34 +28,20 @@
                   <input type="file" id="fileInput" (change)="open($event)" class="input" #inputFile>
                  </label>
                   </a></li>
-                <li><a href="">Template</a></li>
+                <li><a routerLink="/template">Template</a></li>
                 <li><a href="">Instruction</a></li>
-                <li><a href="">About board</a></li>
+                <li><a routerLink="/about">About board</a></li>
+                <li><a routerLink="/add-template" >Add Template</a></li>
 
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
-        <section id="slider" >
-          <div class="slider_overlay">
-            <div class="container">
-              <div class="row">
-                <div class="main_slider text-center">
-                  <div class="col-md-12">
-                    <div class="main_slider_content wow zoomIn animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-name: zoomIn;">
-                      <h1>CBDesigner</h1>
-                      <p>Cutting Board Designer is a program that allows you to design a multi-panel end grain cutting board. </p>
-                      <button routerLink="/panel" (click)="new()" class="btn-lg btn-danger ">Start</button>
-                    </div>
-                  </div>
-                </div>
 
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </div>
+
   </div>
-</header>
+
+</div>
 

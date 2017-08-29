@@ -80,6 +80,13 @@ export class ReportComponent implements OnInit {
     }
 
     saveReport(){
+        let background = document.getElementsByClassName('layer-infos');
+        background[0].setAttribute('style', 'background: none');
+        let backgroundPanel = document.getElementsByClassName('panel');
+        for (let i=0; i< backgroundPanel.length; i++){
+            backgroundPanel[i].setAttribute('style', 'background: none; color: black');
+        }
+
         let el = document.getElementById('total');
         html2canvas(el, {
             onrendered: function (canvas) {
@@ -93,7 +100,10 @@ export class ReportComponent implements OnInit {
                 pdfMake.createPdf(docDefinition).download("report.pdf");
             }
         });
-
+        background[0].removeAttribute('style');
+        for (let i=0; i< backgroundPanel.length; i++){
+            backgroundPanel[i].removeAttribute('style');
+        }
     }
     print(){
         let background = document.getElementsByClassName('layer-infos');
