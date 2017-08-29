@@ -29,7 +29,7 @@ export class LayerComponent implements OnInit {
 
     }
     SaveFile(){
-       let array = JSON.stringify([this.boardservise.board, this.boardservise.finalLayer, this.boardservise.clickeditem, this.boardservise.heightBoard]);
+       let array = JSON.stringify([this.boardservise.rotateItem, this.boardservise.finalLayer, this.boardservise.clickeditem, this.boardservise.heightBoard]);
 
         let file = new Blob([array], {type: "application/json"});
         let url  = URL.createObjectURL(file);

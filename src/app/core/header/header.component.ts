@@ -24,23 +24,38 @@ export class HeaderComponent implements OnInit {
   }
 
   open(e){
+    this.boardservise.board = [];
     var file = e.target.files[0];
+
     let blob = new Blob([file], {type: 'text/json'});
       let reader = new FileReader();
 
       reader.onload = (e) => {
         let array = JSON.parse(reader.result);
-        //this.boardservise.board = array[0];
+
+        this.boardservise.rotateItem = array[0];
         this.boardservise.finalLayer = array[1];
         this.boardservise.clickeditem = array[2];
         this.boardservise.heightBoard = array[3];
+
         for(let i=0; i<this.boardservise.clickeditem.length; i++){
           this.boardservise.board.push( this.boardservise.finalLayer[this.boardservise.clickeditem[i]]);
         }
 
+        for(let j=0; j< this.boardservise.rotateItem.length; j++){
+          if(+this.boardservise.rotateItem[j] < 0) {
+            let item: any[] = this.boardservise.board[j];
+            let revArr = new Array;
+            for (let k = item.length - 1; k >= 0; k--) {
+              revArr.push(item[k]);
+            }
+            this.boardservise.board.splice(j, 1, revArr);
+          }
+        }
       }
     reader.readAsText(blob);
 
    this.router.navigate(['panel']);
+
   }
 }

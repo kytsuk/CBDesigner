@@ -1,8 +1,21 @@
-<div class="container-fluid home-bg">
+<div class="container-fluid template-bg">
   <app-header></app-header>
-  <div class="container-fluid home">
+  <div class="container-fluid template">
     <div class="row">
-
+     <div class="col-xs-4 " *ngFor="let item of arrayOfKeys, let i=index ">
+       <div class="panel">
+          <div class="panel-heading">
+            <h4 class="panel-title"> Template - {{i+1}} </h4>
+          </div>
+           <div class="panel-body">
+              <img [src]="boardDate[item][0]" class="img-responsive img-thumbnail center-block">
+           </div>
+           <div class="panel-footer">
+             <button class="btn btn-warning" (click)="load(item)"> Load template </button>
+             <button class="btn btn-warning pull-right" (click)="delete(item)" *ngIf="authServise.isAuth()"> Remove template </button>
+           </div>
+       </div>
+     </div>
     </div>
   </div>
   <app-footer class="footer"></app-footer>

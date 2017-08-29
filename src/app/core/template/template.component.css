@@ -1,0 +1,23 @@
+.template-bg{
+    background: url(../../../assets/image/page/background.jpg) center center ;
+    background-size: cover;
+}
+.template{
+    margin-top: 80px;
+}
+.panel{
+    background: rgba(0, 0, 0, .45);     border: solid 1px white;
+    color: white;
+}
+.panel-title{
+    color: #da9b31;
+}
+.panel-footer{
+    background: rgba(0, 0, 0, .55);
+}
+.panel-heading{
+    background: rgba(0, 0, 0, .70);
+}
+.panel-body img{
+    width: 250px; height: 150px;
+}

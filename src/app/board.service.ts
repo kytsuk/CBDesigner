@@ -43,6 +43,7 @@ export class BoardService {
    layer: Layer[] = []; // один щит
   finalLayer: any[]=[]; // масив щитів
    board: any[] = []; //масив ділянок дошки
+    rotateItem: any[] = [] //яка ділянка перевернута
     Image :any;
   addItemLayer(width: number, color: string, name: string, urlEnd: string){
    this.layer.push(new Layer(width, color, name, urlEnd +this.randomise() +'.jpg'));
@@ -57,4 +58,5 @@ export class BoardService {
         let ran = +(Math.random()*3).toFixed(0) ;
         return ran;
     }
+
 }

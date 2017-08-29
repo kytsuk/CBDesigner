@@ -19,8 +19,7 @@ export class ListLayerComponent implements OnInit {
   addItem(i){
     this.boardservise.board.push( this.boardservise.finalLayer[i]);
     this.boardservise.clickeditem.push(i) ;
-
-
+    this.boardservise.rotateItem.push(0);
   }
   editLayer(i: number){
     this.boardservise.layer = this.boardservise.finalLayer[i];

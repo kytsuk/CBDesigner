@@ -3,6 +3,7 @@ import {BoardService} from "../board.service";
 import * as html2canvas from 'html2canvas';
 
 import {Router} from "@angular/router";
+import {AuthService} from "../auth/auth.service";
 
 
 @Component({
@@ -16,7 +17,7 @@ export class BoardComponent implements OnInit {
   public showboardImage: boolean = false;
   showzoom: boolean = false;
   showTotalBtn: boolean = true;
-  constructor(public boardservise: BoardService, private el : ElementRef, private render: Renderer, private router: Router) {}
+  constructor(public boardservise: BoardService, private el : ElementRef, private render: Renderer, private router: Router, private authServise: AuthService) {}
 
   ngOnInit() {
   }
@@ -87,6 +88,7 @@ export class BoardComponent implements OnInit {
       revArr.push(item[k]);
      }
     this.boardservise.board.splice(i, 1 , revArr) ;
+    this.boardservise.rotateItem.splice(i, 1 , -1) ;
     this.showComand(i);
     this.clickedItemBoard = null;
 
