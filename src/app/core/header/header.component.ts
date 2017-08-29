@@ -58,4 +58,10 @@ export class HeaderComponent implements OnInit {
    this.router.navigate(['panel']);
 
   }
+  new(){
+    this.boardservise.board = [];
+    this.boardservise.finalLayer = [];
+    this.boardservise.heightBoard = [];
+    this.boardservise.clickeditem = [];
+  }
 }
