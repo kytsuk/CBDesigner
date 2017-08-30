@@ -88,7 +88,7 @@ export class BoardComponent implements OnInit {
       revArr.push(item[k]);
      }
     this.boardservise.board.splice(i, 1 , revArr) ;
-    this.boardservise.rotateItem.splice(i, 1 , -1) ;
+    this.boardservise.rotateItem.splice(i, 1, !this.boardservise.rotateItem[i]) ;
     this.showComand(i);
     this.clickedItemBoard = null;
 
@@ -100,6 +100,7 @@ export class BoardComponent implements OnInit {
     this.showboardImage = false;
     this.boardservise.board.splice(0);
     this.boardservise.clickeditem.splice(0);
+    this.boardservise.rotateItem.splice(0);
   }
   boardLenght():number{
     let length: number = 0;

@@ -33,10 +33,12 @@ export class TemplateComponent implements OnInit {
     for(let i=0; i< this.boardservise.clickeditem.length; i++){
       this.boardservise.board.push( this.boardservise.finalLayer[this.boardservise.clickeditem[i]]);
     }
+
     for(let j=0; j< this.boardservise.rotateItem.length; j++){
-      if(+this.boardservise.rotateItem[j] < 0) {
+      if(this.boardservise.rotateItem[j] == false) {
         let item: any[] = this.boardservise.board[j];
         let revArr = new Array;
+
         for (let k = item.length - 1; k >= 0; k--) {
           revArr.push(item[k]);
         }
