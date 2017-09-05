@@ -4,6 +4,7 @@
 }
 .template{
     margin-top: 80px;
+    margin-bottom: 70px;
 }
 .panel{
     background: rgba(0, 0, 0, .45);     border: solid 1px white;
@@ -20,4 +21,36 @@
 }
 .panel-body img{
     width: 250px; height: 150px;
+}
+@media screen and (max-width:770px ){
+    .template{
+        margin-top: 100px;
+    }
+}
+@media screen and (max-width:630px ){
+    .panel-body img{
+        width: 200px; height: 120px;
+    }
+    .panel-footer button{
+        font-size: 12px;
+    }
+    .panel-title{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width:530px ){
+    .panel-body img{
+        width: 150px; height: 90px;
+    }
+}
+@media screen and (max-width:430px ){
+    .panel-body img{
+        width: 100px; height: 60px;
+    }
+    .panel-footer button{
+        font-size: 10px; padding: 5px 4px;
+    }
+    .panel-title{
+        font-size: 12px;
+    }
 }

@@ -26,3 +26,19 @@
 section{
     margin-bottom: 30px;
 }
+@media screen and (max-width:995px ){
+    .featurette h2{
+       font-size: 20px;
+    }
+    .text-section{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:760px ){
+    .featurette-image{
+        margin-top: 10px; margin-bottom: 10px;
+    }
+    .text-section{
+         margin-bottom: 5px;
+    }
+}
