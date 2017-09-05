@@ -28,3 +28,22 @@
 .navbar-toggle{
     color: white; background-color: #f0ad4e;
 }
+@media screen and (max-width:767px ){
+    .main_menu_bg {
+        height: 90px;
+            }
+    .navbar-right a{
+        padding: 10px 5px;
+    }
+    .navbar-right li{
+        display: inline-block;
+    }
+}
+@media screen and (max-width:453px ){
+    .our_logo{
+        padding: 15px 0;
+    }
+    .our_logo img{
+       display: none;
+    }
+}

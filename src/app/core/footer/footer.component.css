@@ -5,9 +5,11 @@
     background: rgba(0, 0, 0, .45);
     margin-left: -15px;
     border-top: 1px solid white;
+    height: 70px;
 }
 .info{
     margin: 20px 70px; color: #da9b31 ;
+    display: inline-block;
 }
 .info a {
     padding-left: 40px; color: white;
@@ -15,3 +17,31 @@
 .info a:hover {
     color: #da9b31;
 }
+.kvadro{
+    float: right;
+    margin-right: 150px;
+}
+
+@media screen and (max-width:600px ){
+    .kvadro{
+         margin-right: 65px;
+    }
+    .info{
+        margin: 20px 10px;
+         }
+    .info a {
+        padding-left: 15px; color: white;
+    }
+}
+@media screen and (max-width:400px ){
+    .kvadro{
+       float: none; text-align: center; margin-right: 0;
+        display: block;
+    }
+      .info{
+          text-align: center; margin-top: 10px;
+      }
+      .row{
+
+      }
+  }
