@@ -1,3 +1,4 @@
+
 .color {
     display: inline-block;
     border: 1px solid black;
@@ -8,19 +9,15 @@
 }
 .panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }
 .slider  {
-    background: url(../../assets/image/page/background.jpg) center center ;
-    background-size: cover;
-    height: 200vh;
+    background: url(../../assets/image/page/background.jpg) no-repeat center center fixed ;
+    background-size: cover;    height: 200vh;
 }
 .menu-layer{
    background: rgba(0, 0, 0, .45);
-    background-size: contain ;
-    border: 1px solid white;
-    height: 80px;
+    background-size: contain ;    border: 1px solid white;    height: 80px;
 }
 .panel, .panel-heading{
-    background: none;
-    border: none;
+    background: none;     border: none;
 }
 .add-panel{
     margin-top: 30px;
@@ -55,18 +52,24 @@
     color: white;
 }
 .btn-add{
-    background: #da9b31;
-    border: solid 1px white;
-}
-.form-control{
-    height: auto;     background: rgba(0, 0, 0, .55);     color: white;
+    background: #da9b31;     border: solid 1px white; }
+.form-inline{
+    height: 50px;     background: rgba(0, 0, 0, .55);     color: white; padding-top: 10px;
    }
-.form-control input, .form-control select{
-    color: black;
+.form-group input, .form-group select{
+    color: black; background: white; padding: 0;
 }
-.form-control label{
-    font-weight: 400 ;
+.form-group input{
+    height: auto; width: 40px;
 }
+.form-group{
+    display: inline-block;
+}
+.form-group label{
+    font-weight: 200 ;
+}
+
+
 @media screen and (max-width:860px ){
     .panel-body a{
         padding-left: 20px;
@@ -87,4 +90,16 @@
         .panel-body h3{
         display: none;
     }
+}
+@media screen and (max-width:460px ){
+    .btn-add{
+        padding: 5px 2px;
+    }
+    .color{ width: 40px;}
+}
+@media screen and (max-width:410px ){
+    .btn-add{
+        padding: 5px 2px; font-size: 11px;
+    }
+    .form-inline{ font-size: 12px;}
 }

@@ -27,20 +27,25 @@
   </div>
   <div class="layer-add" *ngIf="show">
     <div class="row">
-      <form class="form-group" #myForm="ngForm">
-        <div class="form-control">
-          <label for=""> Width part, mm</label>
-          <input type="text"  name="width" [(ngModel)]="width"  required>
-          <label> Change wood</label>
-          <select  name="color"  [(ngModel)]="selected" #color="ngModel" class=" " required>
-            <option *ngFor="let col of colors; let i = index" [value]="i" >
-              {{col.name}}
-            </option>
-          </select>
-          <div *ngIf="selected" class=" color" [ngStyle]="{ 'background-image': 'url(' + colors[selected].color + ')'}"></div>
-          <button class="btn btn-add"  (click)="AddItemLayer()" [disabled]="myForm.invalid">Add  Layer Item</button>
+      <form class="form-inline" #myForm="ngForm">
 
-        </div>
+          <div class="form-group ">
+            <label > Width part, mm</label>
+            <input class=" " type="number"  name="width" [(ngModel)]="width"  required size="2">
+          </div>
+         <div class="form-group">
+           <label> Change wood</label>
+           <select  class="" name="color"  [(ngModel)]="selected" #color="ngModel" class=" " required>
+             <option *ngFor="let col of colors; let i = index" [value]="i" >
+               {{col.name}}
+             </option>
+           </select>
+           <div *ngIf="selected" class=" color" [ngStyle]="{ 'background-image': 'url(' + colors[selected].color + ')'}"></div>
+         </div>
+
+          <button class="btn btn-add "  (click)="AddItemLayer()" [disabled]="myForm.invalid">Add Item</button>
+
+
 
 
       </form>
