@@ -17,9 +17,12 @@ export class BoardComponent implements OnInit {
   public showboardImage: boolean = false;
   showzoom: boolean = false;
   showTotalBtn: boolean = true;
-  constructor(public boardservise: BoardService, private el : ElementRef, private render: Renderer, private router: Router, private authServise: AuthService) {}
+  constructor(public boardservise: BoardService, private el : ElementRef, private render: Renderer, private router: Router, private authServise: AuthService) {
+
+  }
 
   ngOnInit() {
+
   }
 
   showComand(i){
@@ -101,6 +104,7 @@ export class BoardComponent implements OnInit {
     this.boardservise.board.splice(0);
     this.boardservise.clickeditem.splice(0);
     this.boardservise.rotateItem.splice(0);
+
   }
   boardLenght():number{
     let length: number = 0;
@@ -144,4 +148,15 @@ total(height, widthBlade, btntotal){
     resize.textContent = 'Hidden panel';
   } else resize.textContent = 'Board resize';
   }
+  // resize(){
+  //   let mq = window.matchMedia("screen and (max-width: 800px)")
+  //       if(mq.matches){
+  //        for(let i=0; i< this.boardservise.board.length; i++){
+  //          for(let j=0; i< this.boardservise.board[i].length; j++){
+  //            this.boardservise.board[i][j].width *= 0.7;
+  //          }
+  //        }
+  //        console.log('resize work')
+  //       }
+  // }
 }

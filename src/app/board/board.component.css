@@ -4,7 +4,7 @@
     border-bottom: 0.01em solid black;
 }
 .cut-board{
-    display: inline-block;
+    display: inline-block; box-sizing:border-box; position: relative;
 }
 .active-block{
     border:1px solid red ;
@@ -13,7 +13,7 @@
     border: none;
 }
 #board{
-    display: inline-block;
+    display: block;
 }
 .panel-footer{
     padding-bottom: 20px;
@@ -46,5 +46,10 @@
 }
 .btn-resize{
     background: #da9b31; color: white; border: 1px solid white;
+
+}
+@media screen and (max-width:770px ){
+
+
 
 }

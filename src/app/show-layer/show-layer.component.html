@@ -19,8 +19,8 @@
           <div class="pull-right ">
             <form #myForm="ngForm" >
               <i class="total">Panel height, mm</i>
-              <input type="number"  name="height" required #layerheight style="width: 90px"
-                     [value]="boardservise.heightBoard[boardservise.editLayer]">
+              <input type="number"  name="height" required #layerheight style="width: 50px"
+                     [value]="boardservise.heightBoard[boardservise.editLayer]" size="2">
               <button class="btn btn-save" (click)="SaveLayer(layerheight)" [disabled]="myForm.invalid || layerheight.invalid">Save  </button>
             </form>
           </div>
@@ -30,7 +30,7 @@
             <div class=" col-xs-3 board">
               <div *ngFor="let ley of boardservise.layer"
                    class="board-layer"
-                   [ngStyle]="{'background-image': 'url(' + ley.color + ')', 'height': ley.width+'px'}">
+                   [ngStyle]="{'background-image': 'url(' + ley.color + ')', 'height': +ley.width*0.6 +'px'}">
 
               </div>
             </div>
@@ -43,7 +43,7 @@
                     <td>Number:</td>
                     <td>Wood</td>
                     <td>Width</td>
-                    <td>Remove item</td>
+                    <td>Remove</td>
                   </tr>
                   <tr *ngFor="let ley of boardservise.layer; let i = index">
                     <td>
@@ -57,7 +57,7 @@
                       </select>
                     </td>
                     <td>
-                      <input type="number" [value]="ley.width" [(ngModel)]="boardservise.layer[i].width" name="width" #width="ngModel" (change)="changeWidth()">
+                      <input type="number" [value]="ley.width" [(ngModel)]="boardservise.layer[i].width" name="width" #width="ngModel" (change)="changeWidth()" size="2">
                     </td>
                     <td >
                       <span class="glyphicon glyphicon-remove text-center" (click)="remove(i)"></span>

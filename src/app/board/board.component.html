@@ -21,10 +21,11 @@
               [ngStyle]="{'width': boardservise.heightBoard[boardservise.clickeditem[i]]+'px'}"
               class="cut-board"
               (click)="showComand(i)"
-              id="row{{i}}"
-         >
+              id="row{{i}}" >
+
            <div *ngFor="let layer of boardservise.board[i], let k = index"
-                [ngStyle]="{ 'background-image': 'url(' + layer.urlEnd  +')','height': layer.width+'px'}"
+                [ngStyle]="{ 'background-image': 'url(' + layer.urlEnd  +')','height': layer.width+'px' }"
+
                 class="board">
 
            </div>

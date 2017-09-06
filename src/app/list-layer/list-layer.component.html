@@ -11,7 +11,7 @@
                             <div *ngFor="let y of boardservise.finalLayer[i], let k = index" class="  board-layer " >
                                 <div class=" row">
                                     <div class=" board-layer-item "
-                                         [ngStyle]="{'background-image': 'url(' + boardservise.finalLayer[i][k].color + ')', 'height': boardservise.finalLayer[i][k].width+'px'}">
+                                         [ngStyle]="{'background-image': 'url(' + boardservise.finalLayer[i][k].color + ')', 'height': +boardservise.finalLayer[i][k].width*0.5 +'px'}">
                                     </div>
                                 </div>
                             </div>
