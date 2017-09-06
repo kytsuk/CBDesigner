@@ -26,17 +26,17 @@
     margin-top: 30px;
 }
 .panel-body{
-    padding: 0;
+    padding: 0; display: inline-block;
 }
 .panel-body h3{
     font-size: 4rem;
     font-family: 'Pacifico', cursive;
     color: darkred;
     line-height: 6rem;
-    vertical-align: middle;
+    vertical-align: top;
     text-shadow: white 2px 2px;
     display: inline-block;
-    margin-top: 10px;
+    margin-top: -20px;
 }
 .panel-body a{
     padding-left: 50px;
@@ -66,4 +66,25 @@
 }
 .form-control label{
     font-weight: 400 ;
+}
+@media screen and (max-width:860px ){
+    .panel-body a{
+        padding-left: 20px;
+    }
+    .panel-body h3{
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width:655px ){
+    .panel-body a{
+        padding-left: 15px;
+    }
+    .panel-body h3{
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width:580px ){
+        .panel-body h3{
+        display: none;
+    }
 }
