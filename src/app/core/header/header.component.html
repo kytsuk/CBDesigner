@@ -21,16 +21,20 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <a class="navbar-brand our_logo" routerLink="/"><img src="../../../assets/image/page/logo.png" alt="" ></a>
+              <select #langSelect (change)="translate.use(langSelect.value)">
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+              </select>
+
               <ul class="nav navbar-nav navbar-right">
-                <li  ><a routerLink="/panel" (click)="new()"> New</a></li>
-                <li ><a  (click)="clickInput(inputFile)" style="cursor: pointer">Open
+                <li  ><a routerLink="/panel" (click)="new()"> {{ "new" | translate }}</a></li>
+                <li ><a  (click)="clickInput(inputFile)" style="cursor: pointer">{{ "open" | translate }}
                   <label>
                   <input type="file" id="fileInput" (change)="open($event)" class="input" #inputFile>
                  </label>
                   </a></li>
-                <li><a routerLink="/template">Template</a></li>
-                <li><a href="">Instruction</a></li>
-                <li><a routerLink="/about">About board</a></li>
+                <li><a routerLink="/template">{{ "template" | translate }}</a></li>
+                <li><a href="">{{ "instruction" | translate }}</a></li>
+                <li><a routerLink="/about">{{ "about" | translate }}</a></li>
 
 
               </ul>

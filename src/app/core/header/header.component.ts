@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BoardService} from "../../board.service";
 import {Router} from "@angular/router";
 import {AuthService} from "../../auth/auth.service";
+import {TranslateService} from "ng2-translate";
 
 
 @Component({
@@ -12,7 +13,7 @@ import {AuthService} from "../../auth/auth.service";
 export class HeaderComponent implements OnInit {
 
 
-  constructor(private boardservise: BoardService, private router: Router, private authServise: AuthService) { }
+  constructor(private boardservise: BoardService, private router: Router, private authServise: AuthService, private translate: TranslateService) { }
 
   ngOnInit() {
   }
@@ -64,5 +65,8 @@ export class HeaderComponent implements OnInit {
     this.boardservise.finalLayer = [];
     this.boardservise.heightBoard = [];
     this.boardservise.clickeditem = [];
+  }
+  changeLang(lang: string) {
+    this.translate.use(lang);
   }
 }

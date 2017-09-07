@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {Http, HttpModule} from '@angular/http';
 import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import { AppComponent } from './app.component';
@@ -27,6 +27,7 @@ import {AuthService} from "./auth/auth.service";
 import {AuthGuardService} from "./auth/auth-guard.service";
 import {AuthModule} from "./auth/auth.module";
 import {AddTemplateComponent} from "./core/add-template/add-template.component";
+import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-translate";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,11 @@ import {AddTemplateComponent} from "./core/add-template/add-template.component";
     HttpModule,
     ReactiveFormsModule,
     AuthModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
+      deps: [Http]
+    }),
     RouterModule.forRoot([
       {path: '' , component: HomeComponent, pathMatch: 'full' },
       {path: '3D-board', component: D3BoardComponent},
@@ -64,6 +70,7 @@ import {AddTemplateComponent} from "./core/add-template/add-template.component";
     ])
   ],
   providers: [BoardService, DataService, AuthService, AuthGuardService,{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  exports: [BrowserModule, HttpModule, TranslateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
