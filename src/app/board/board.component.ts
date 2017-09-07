@@ -148,15 +148,16 @@ total(height, widthBlade, btntotal){
     resize.textContent = 'Hidden panel';
   } else resize.textContent = 'Board resize';
   }
-  // resize(){
-  //   let mq = window.matchMedia("screen and (max-width: 800px)")
-  //       if(mq.matches){
-  //        for(let i=0; i< this.boardservise.board.length; i++){
-  //          for(let j=0; i< this.boardservise.board[i].length; j++){
-  //            this.boardservise.board[i][j].width *= 0.7;
-  //          }
-  //        }
-  //        console.log('resize work')
-  //       }
-  // }
+   getWidth(width){
+     let mq = window.matchMedia("screen and (min-width:480px)");
+     if(mq.matches){
+       return {'width': width+ 'px'}
+     } else return {'width': width*0.7 + 'px'}
+   }
+  getHeight(height){
+    let mq = window.matchMedia("screen and (min-width:480px)");
+    if(mq.matches){
+      return  height+ 'px'
+    } else return  height*0.7 + 'px'
+  }
 }

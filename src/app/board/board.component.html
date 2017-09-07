@@ -18,13 +18,13 @@
         <div id="board">
 
          <div *ngFor="let brd of boardservise.board; let i = index"
-              [ngStyle]="{'width': boardservise.heightBoard[boardservise.clickeditem[i]]+'px'}"
+              [ngStyle]="getWidth(boardservise.heightBoard[boardservise.clickeditem[i]])"
               class="cut-board"
               (click)="showComand(i)"
               id="row{{i}}" >
 
            <div *ngFor="let layer of boardservise.board[i], let k = index"
-                [ngStyle]="{ 'background-image': 'url(' + layer.urlEnd  +')','height': layer.width+'px' }"
+                [ngStyle]="{'height' : getHeight(layer.width),  'background-image': 'url(' + layer.urlEnd  +')' } "
 
                 class="board">
 
