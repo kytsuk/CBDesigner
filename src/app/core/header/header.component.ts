@@ -13,7 +13,7 @@ import {TranslateService} from "ng2-translate";
 export class HeaderComponent implements OnInit {
 
 
-  constructor(private boardservise: BoardService, private router: Router, private authServise: AuthService, private translate: TranslateService) { }
+  constructor(private boardservise: BoardService, private router: Router, private authServise: AuthService, public translate: TranslateService) { }
 
   ngOnInit() {
   }

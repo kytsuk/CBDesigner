@@ -7,7 +7,7 @@ import {TranslateService} from "ng2-translate";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit{
-  constructor(private translate: TranslateService) {
+  constructor(public translate: TranslateService) {
     translate.addLangs(['En', 'Ukr', 'Ru']);
     translate.setDefaultLang('En');
     translate.use('En');
