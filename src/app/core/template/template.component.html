@@ -5,13 +5,13 @@
      <div class="col-sm-4 col-md-3 col-xs-6" *ngFor="let item of arrayOfKeys, let i=index ">
        <div class="panel">
           <div class="panel-heading">
-            <h4 class="panel-title"> Template - {{i+1}} </h4>
+            <h4 class="panel-title"> {{ "template" | translate }} {{i+1}} </h4>
           </div>
            <div class="panel-body">
               <img [src]="boardDate[item][0]" class="img-responsive img-thumbnail center-block">
            </div>
            <div class="panel-footer">
-             <button class="btn btn-warning center-block" (click)="load(item)"> Load template </button>
+             <button class="btn btn-warning center-block" (click)="load(item)"> {{ "load" | translate }} </button>
              <button class="btn btn-warning pull-right"
                      (click)="delete(item)" *ngIf="authServise.isAuth()"> <span class="glyphicon glyphicon-remove"></span> </button>
            </div>

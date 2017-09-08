@@ -24,6 +24,13 @@
 .our_logo img {
     width: 70%;
 }
+.navbar select{
+    margin-top: 20px;  padding: 3px 5px; border: 1px solid #da9b31; border-radius: 7px;
+ }
+.navbar-nav{
+    display: inline-block; margin-left: 20px;
+}
+
 
 .navbar-toggle{
     color: white; background-color: #f0ad4e;
@@ -38,12 +45,20 @@
     .navbar-right li{
         display: inline-block;
     }
+    .our_logo img{
+        display: none;
+    }
+}
+@media screen and (max-width:540px ){
+    .main_menu_bg {        height: 120px;    }
+    .our_logo{         margin-bottom: 0;    }
+    .navbar-right a{
+        padding-top: 0;
+    }
 }
 @media screen and (max-width:453px ){
     .our_logo{
         padding: 15px 0;
     }
-    .our_logo img{
-       display: none;
-    }
+
 }

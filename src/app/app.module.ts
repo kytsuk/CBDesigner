@@ -28,7 +28,9 @@ import {AuthGuardService} from "./auth/auth-guard.service";
 import {AuthModule} from "./auth/auth.module";
 import {AddTemplateComponent} from "./core/add-template/add-template.component";
 import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-translate";
-
+export function httpFactory(http: Http) {
+  return new TranslateStaticLoader(http, '/assets/i18n', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +58,7 @@ import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-trans
     AuthModule,
     TranslateModule.forRoot({
       provide: TranslateLoader,
-      useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
+      useFactory: httpFactory ,
       deps: [Http]
     }),
     RouterModule.forRoot([
