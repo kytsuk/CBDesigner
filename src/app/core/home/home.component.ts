@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
   new(){
+    this.boardservise.layer=[];
     this.boardservise.board = [];
     this.boardservise.finalLayer = [];
     this.boardservise.heightBoard = [];

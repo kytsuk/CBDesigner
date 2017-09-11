@@ -61,6 +61,7 @@ export class HeaderComponent implements OnInit {
 
   }
   new(){
+    this.boardservise.layer=[];
     this.boardservise.board = [];
     this.boardservise.finalLayer = [];
     this.boardservise.heightBoard = [];

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Layer} from './board.model';
+import {TranslateService} from "ng2-translate";
 
 @Injectable()
 export class BoardService {
@@ -30,8 +31,12 @@ export class BoardService {
       }
 
   ]
-  constructor() { }
 
+
+  constructor(public translate: TranslateService) {
+
+  }
+    public wood: any[]=[];
     layershow: boolean = false; //для показу компонетів
     editLayer: number = null; //номер щита редагування
    totalWidth: number = 0; // загальна ширина щита
@@ -58,5 +63,15 @@ export class BoardService {
         let ran = +(Math.random()*3).toFixed(0) ;
         return ran;
     }
+  woodTranslate(){
+       this.wood.splice(0);
+      this.translate.getTranslation(this.translate.currentLang).subscribe((res) => {
+         let arrayofKeys = Object.keys(res.wood);
+          for (let i=0; i< arrayofKeys.length; i++){
+              this.wood.push(res.wood[arrayofKeys[i]]);
+          }
+      });
+     // console.log(wood)
 
+  }
 }

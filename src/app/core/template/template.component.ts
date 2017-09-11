@@ -45,6 +45,7 @@ export class TemplateComponent implements OnInit {
         this.boardservise.board.splice(j, 1, revArr);
       }
     }
+
     this.route.navigate(['/panel']);
   }
 

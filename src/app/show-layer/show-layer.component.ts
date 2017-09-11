@@ -13,6 +13,7 @@ export class ShowLayerComponent implements OnInit {
   constructor(public boardservise: BoardService) {    }
 
   ngOnInit() {
+   this.boardservise.woodTranslate();
 
 
   }
@@ -28,9 +29,9 @@ export class ShowLayerComponent implements OnInit {
     }
 
     changeWood(name,i){
-        let lengthLayer = this.boardservise.colorLayer.length;
+        let lengthLayer = this.boardservise.wood.length;
         for(let j = 0; j < lengthLayer; j++){
-            if(this.boardservise.colorLayer[j].name == name.value){
+            if(this.boardservise.wood[j] == name.value){
                 this.boardservise.layer[i].color = this.boardservise.colorLayer[j].color;
                 this.boardservise.layer[i].urlEnd = this.boardservise.colorLayer[j].urlEnd +this.boardservise.randomise()+'.jpg';
             }

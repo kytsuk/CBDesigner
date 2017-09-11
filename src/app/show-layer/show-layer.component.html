@@ -53,7 +53,7 @@
                     </td>
                     <td>
                       <select [value]="boardservise.layer[i].name" [(ngModel)]="boardservise.layer[i].name" name="name" #name="ngModel" (change)=" changeWood(name,i)">
-                        <option *ngFor="let wood of boardservise.colorLayer"  >{{wood.name}}</option>
+                        <option *ngFor="let wood of boardservise.wood; let col = index"  >{{boardservise.wood[col]}}</option>
                       </select>
                     </td>
                     <td>
