@@ -35,10 +35,11 @@
           </div>
          <div class="form-group">
            <label> Change wood</label>
-           <select  class="" name="color"  [(ngModel)]="selected" #color="ngModel" class=" " required>
-             <option *ngFor="let col of colors; let i = index" [value]="i" >
-               {{col.name}}
-             </option>
+           <select  class="" name="color"  [(ngModel)]="selected" #color="ngModel"  required>
+             <!--<option *ngFor="let col of colors; let i = index" [value]="i" >-->
+               <!--{{col.name}}-->
+             <!--</option>-->
+                 <option *ngFor="let col of colors; let i = index" [value]="i" >{{woodName[i]}}</option>
            </select>
            <div *ngIf="selected" class=" color" [ngStyle]="{ 'background-image': 'url(' + colors[selected].color + ')'}"></div>
          </div>

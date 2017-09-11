@@ -1,4 +1,13 @@
 {
+  "wood": {
+    "oak": "Oak",
+    "walnut": "Walnut",
+    "cherry": "Chery",
+    "maple": "Maple",
+    "apple": "Apple",
+    "ash": "Ash"
+  },
+
   "new" : "New",
   "open" : "Open",
   "templates" : "Templates",

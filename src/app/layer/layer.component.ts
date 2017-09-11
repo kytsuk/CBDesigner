@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BoardService} from "../board.service";
 import * as FileSaver from 'file-saver';
+import {translateLoaderFactory, TranslateService} from "ng2-translate";
 
 
 @Component({
@@ -10,14 +11,22 @@ import * as FileSaver from 'file-saver';
 })
 export class LayerComponent implements OnInit {
 
-  constructor(public boardservise: BoardService) { }
+  constructor(public boardservise: BoardService, public translate: TranslateService) { }
   colors = this.boardservise.colorLayer;
+ public arrayofKeys;
+ public woodName: any[]= [];
   public selected: number;
   width: number;
   show: boolean;
   ngOnInit() {
     this.show = this.boardservise.layershow;
-  }
+    this.translate.getTranslation(this.translate.currentLang).subscribe((res) => {
+               this.arrayofKeys = Object.keys(res.wood);
+              for (let i=0; i< this.arrayofKeys.length; i++){
+                  this.woodName.push(res.wood[this.arrayofKeys[i]]);
+              }
+         });
+    }
     AddItemLayer(){
      this.boardservise.addItemLayer(this.width, this.colors[this.selected].color, this.colors[this.selected].name, this.colors[this.selected].urlEnd);
 
