@@ -1,5 +1,5 @@
 <div class="row" *ngIf="showzoom">
-  <h6 class="text-center">Resize board <span>(+- 1 mm)</span></h6>
+  <h6 class="text-center">{{"resize" | translate}} <span>(+- 1 {{"mm" | translate}})</span></h6>
 
 </div>
 
@@ -15,11 +15,11 @@
 
    <div class="form-group ">
        <form class="form-control resize" (change)="disabledRange(height, width)">
-           <label for=""> Resize Width</label>
+           <label for=""> {{"resize" | translate}} {{"width" | translate}}</label>
            <input type="checkbox" #height>
-           <label for=""> Resize Height</label>
+           <label for=""> {{"resize" | translate}} {{"height" | translate}}</label>
            <input type="checkbox" #width>
-           <button class="btn btn-warning pull-right " (click)="originSize(zoom)">Original size</button>
+           <button class="btn btn-warning pull-right " (click)="originSize(zoom)">{{"org size" | translate}}</button>
        </form>
 
    </div>

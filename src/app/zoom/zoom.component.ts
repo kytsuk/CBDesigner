@@ -43,16 +43,19 @@ export class ZoomComponent implements OnInit {
 
   zoomingWidth(zoom, width){
     if(width){
-      let item:number[]=[];
+      let item:any[]=[];
       let plus = +(+zoom - this.zoomValueWidth) ;
       let minus = (this.zoomValueWidth - +zoom);
       for (let i = 0; i < this.boardservise.board.length; i++) {
-        item.push(+this.boardservise.board[i][0].width);
+        for (let j = 0; j < this.boardservise.board[i].length; j++) {
+          item.push(+this.boardservise.board[i][j].width);
+        }
       }
+
       if(+zoom.value > this.zoomValueWidth) {
         for (let i = 0; i < this.boardservise.board.length; i++) {
           for (let j = 0; j < this.boardservise.board[i].length; j++) {
-              this.boardservise.board[i][j].width = +item[i] + plus;
+              this.boardservise.board[i][j].width = +item[i*j] + plus;
             }
         }
       }
@@ -61,7 +64,7 @@ export class ZoomComponent implements OnInit {
         for (let i = 0; i < this.boardservise.board.length; i++) {
 
             for (let j = 0; j < this.boardservise.board[i].length; j++) {
-              this.boardservise.board[i][j].width = +item[i] - minus;
+              this.boardservise.board[i][j].width = +item[i*j] - minus;
           }
         }
       }

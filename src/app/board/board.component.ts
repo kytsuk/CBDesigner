@@ -4,6 +4,7 @@ import * as html2canvas from 'html2canvas';
 
 import {Router} from "@angular/router";
 import {AuthService} from "../auth/auth.service";
+import {TranslateService} from "ng2-translate";
 
 
 @Component({
@@ -17,7 +18,8 @@ export class BoardComponent implements OnInit {
   public showboardImage: boolean = false;
   showzoom: boolean = false;
   showTotalBtn: boolean = true;
-  constructor(public boardservise: BoardService, private el : ElementRef, private render: Renderer, private router: Router, private authServise: AuthService) {
+  constructor(public boardservise: BoardService, private el : ElementRef, private render: Renderer, private router: Router,
+              private authServise: AuthService, public translate: TranslateService) {
 
   }
 
@@ -132,12 +134,16 @@ total(height, widthBlade, btntotal){
       this.boardservise.ticknesBlade = +widthBlade.value;
       this.generateImg();
       this.showTotalBtn = !this.showTotalBtn;
-      btntotal.textContent = 'Go to report';
+       this.translate.get('go report').subscribe((res: string) => {
+        btntotal.textContent = res
+       });
 
 
     }else {
       this.showTotalBtn = !this.showTotalBtn;
-      btntotal.textContent = 'Generate report';
+      this.translate.get('generate').subscribe((res: string) => {
+        btntotal.textContent = res
+      });
       document.getElementById("btntot").setAttribute('class', 'btn-warning')
       this.router.navigate(['/total']);
     }

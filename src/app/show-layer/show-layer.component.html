@@ -5,23 +5,23 @@
     <div class="col-xs-12  ">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Panel information</h3>
+          <h3 class="panel-title">{{"panel inf" | translate}}</h3>
         </div>
         <div class="panel-footer  col-xs-12 info" >
           <div class=" pull-left">
               <form>
-                <i class="total">Total length panel =</i>
-                <span>{{boardservise.totalWidth}}</span>  <i> mm </i>
+                <i class="total">{{"lenght panel" | translate}} </i>
+                <span>{{boardservise.totalWidth}}</span>  <i> {{"mm" | translate}} </i>
 
               </form>
 
           </div>
           <div class="pull-right ">
             <form #myForm="ngForm" >
-              <i class="total">Panel height, mm</i>
+              <i class="total">{{"height panel" | translate}} , {{"mm" | translate}}</i>
               <input type="number"  name="height" required #layerheight style="width: 50px"
                      [value]="boardservise.heightBoard[boardservise.editLayer]" size="2">
-              <button class="btn btn-save" (click)="SaveLayer(layerheight)" [disabled]="myForm.invalid || layerheight.invalid">Save  </button>
+              <button class="btn btn-save" (click)="SaveLayer(layerheight)" [disabled]="myForm.invalid || layerheight.invalid">{{"save" | translate}}</button>
             </form>
           </div>
         </div>
@@ -35,15 +35,15 @@
               </div>
             </div>
             <div class="  col-xs-9 table-layer">
-              <strong>Panel constructor</strong><br>
+              <strong>{{"constructor panel" | translate}}</strong><br>
               <div class="table-responsive">
                 <table class="table table-user-information  ">
                   <tbody>
                   <tr>
-                    <td>Number:</td>
-                    <td>Wood</td>
-                    <td>Width</td>
-                    <td>Remove</td>
+                    <td>№</td>
+                    <td>{{ "сhange wood" | translate}}</td>
+                    <td>{{ "width" | translate}}</td>
+                    <td>{{ "remove" | translate}}</td>
                   </tr>
                   <tr *ngFor="let ley of boardservise.layer; let i = index">
                     <td>

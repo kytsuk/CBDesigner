@@ -3,7 +3,7 @@
 
   <div class="panel panel-primary" *ngIf=" boardservise.board.length">
     <div class="panel-heading">
-      <h3 class="panel-title">Design Board</h3>
+      <h3 class="panel-title">{{"design" | translate}}</h3>
     </div>
     <div class="panel-body">
       <div >
@@ -11,7 +11,7 @@
 
           <div class="panel-zoom">
               <app-zoom  [showzoom]="showzoom"></app-zoom>
-              <button class="btn btn-resize" (click)="zoomPanel(resize)" #resize >Resize Board</button>
+              <button class="btn btn-resize" (click)="zoomPanel(resize)" #resize >{{"resize" | translate}}</button>
               <button class="btn btn-resize pull-right" (click)="refreshCanvas()"><span class="glyphicon glyphicon-refresh"></span></button>
           </div>
 
@@ -39,22 +39,23 @@
               <button class="btn btn-warning" (click)="removeItem()"><span class="glyphicon glyphicon-remove-circle" ></span></button>
           </div>
         <div *ngIf="boardservise.board.length" class="panel-footer">
-            <span>Board Lenght - <strong>{{boardLenght()}} mm</strong></span>
+            <span>{{"board lenght" | translate}} - <strong>{{boardLenght()}} {{"mm" | translate}} </strong></span>
             <div>
                 <div>
-                    <label>Input Height board - <strong>mm</strong></label>
+                    <label>{{"input h" | translate}} - <strong>{{"mm" | translate}}</strong></label>
                     <input name="heightBoard" #height="ngModel" [ngModel]="boardservise.heightFinalBoard" required size="2">
-                    <label>Input thickness blade - <strong>mm</strong></label>
+                    <label>{{"input blade" | translate}} - <strong>{{"mm" | translate}}</strong></label>
                     <input name="widthBlade" #widthBlade="ngModel" [ngModel]="boardservise.ticknesBlade" required size="2">
 
 
                 </div>
                <div>
-                   <button  class="btn btn-info " routerLink="/3D-board" [disabled]="!boardservise.Image">3D board</button>
+                   <button  class="btn btn-info " routerLink="/3D-board" [disabled]="!boardservise.Image">3D </button>
                    <button  (click)="total(height, widthBlade, btntotal )" class="btn btn-warning " #btntotal id="btntot"
                             [disabled]="height.invalid || widthBlade.invalid"
-                            >Generate report</button>
-                   <button class="btn btn-warning pull-right" routerLink="/add-template" *ngIf="authServise.isAuth()">Add Template</button>
+                            >{{"generate" | translate}} {{ "report" | translate}}</button>
+                   <button class="btn btn-warning pull-right" routerLink="/add-template" *ngIf="authServise.isAuth()">
+                       {{"add" | translate}} {{"template" | translate}}</button>
                </div>
 
             </div>

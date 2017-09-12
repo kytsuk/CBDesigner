@@ -91,13 +91,13 @@
         display: none;
     }
 }
-@media screen and (max-width:460px ){
+@media screen and (max-width:480px ){
     .btn-add{
-        padding: 5px 2px;
+        padding: 5px 3px;
     }
     .color{ width: 40px;}
 }
-@media screen and (max-width:410px ){
+@media screen and (max-width:430px ){
     .btn-add{
         padding: 5px 2px; font-size: 11px;
     }

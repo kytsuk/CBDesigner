@@ -4,25 +4,25 @@
       <div class="panel panel-primary">
 
         <div class="panel-heading">
-          <h3>Report information</h3>
+          <h3>{{"report" | translate}}</h3>
         </div>
         <div class="panel-footer ">
           <div class="btn-comand">
             <div class="pull-left btn-left">
-              <button class="btn btn-report " routerLink="/panel">Back</button>
+              <button class="btn btn-report " routerLink="/panel">{{"go" | translate}}</button>
               <button class="btn btn-report " routerLink="/3D-board">3D </button>
             </div>
             <div class="pull-right btn-right">
-              <button class="btn btn-report " (click)="saveImg()">Save Image </button>
-              <button class="btn btn-report " (click)="saveReport()">Save Report</button>
-              <button class="btn btn-report " (click)="print()">Print</button>
+              <button class="btn btn-report " (click)="saveImg()">{{"save img" | translate}} </button>
+              <button class="btn btn-report " (click)="saveReport()">{{"save" | translate}} {{"report" | translate}}</button>
+              <button class="btn btn-report " (click)="print()">{{"print" | translate}}</button>
             </div>
           </div>
 
         </div>
         <div class="panel  layer" *ngFor="let l of boardservise.finalLayer, let i = index">
           <div class="panel-heading">
-            <h3 class="panel-title">Panel {{i+1}} information</h3>
+            <h3 class="panel-title">{{"panel inf" | translate}}</h3>
           </div>
           <div class="panel-body">
             <div class="row">
@@ -40,15 +40,15 @@
 
 
               <div class=" col-md-9 col-lg-9 table-responsive">
-                <strong>wood report information</strong><br>
+                <strong>{{"wood report" | translate}}</strong><br>
                 <table class="table table-user-information">
                   <tbody>
                   <tr class="table tab-content">
-                    <td><strong>Wood</strong></td>
-                    <td><strong>Name</strong></td>
-                    <td><strong>Width</strong></td>
-                    <td><strong>Height</strong></td>
-                    <td><strong>Amount</strong></td>
+                    <td><strong>{{"сhange wood" | translate}}</strong></td>
+                    <td><strong>{{"name" | translate}}</strong></td>
+                    <td><strong>{{"width" | translate}}</strong></td>
+                    <td><strong>{{"height" | translate}}</strong></td>
+                    <td><strong>{{"amount" | translate}}</strong></td>
                   </tr>
                   <tr *ngFor="let y of totalBoard[i], let k = index">
                     <td [ngStyle]="{'background-image': 'url(' + y.color + ')', 'height': '25px', 'width': '90px'}" >
@@ -76,8 +76,8 @@
           <div class="panel-heading" >
 
             <label for="" >
-              <i class="total">Total length layer =</i>
-              <span>{{layerLenght(i)}} </span>  <i> mm  (+10mm)</i>
+              <i class="total">{{"lenght panel" | translate}} =</i>
+              <span>{{layerLenght(i)}} </span>  <i> {{"mm" | translate}}  (+10{{"mm" | translate}})</i>
             </label>
 
             <span class="pull-right">

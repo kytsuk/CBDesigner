@@ -13,7 +13,7 @@
     border: none;
 }
 #board{
-    display: block;
+    display: inline-block;
 }
 .panel-footer{
     padding-bottom: 20px;
