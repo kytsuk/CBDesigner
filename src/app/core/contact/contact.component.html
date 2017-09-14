@@ -1,56 +1,44 @@
 <div class="container-fluid home-bg">
   <app-header></app-header>
-  <div class="container-fluid home">
-    <div class="row ">
-      <div class="col-sm-offset-3 col-sm-6 col-xs-12 my-form ">
-        <div class="panel">
-          <div class="panel-heading">
-            <h3>Contact form</h3>
+<div class="container">
+  <div class="row">
+    <div class="my-form col-sm-offset-3 col-sm-6 col-xs-12">
+      <form  *ngIf="commentForm" [formGroup]="commentForm" novalidate  (ngSubmit)="onsubmit(commentForm)">
+        <div class="form-group">
+          <div class="">
+            <label>Name</label>
+            <input class="form-control" name="name" id="name"  placeholder = "Name"   formControlName="name"/>
           </div>
-          <div class="panel-body">
-            <form   [formGroup]="commentForm" novalidate  (ngSubmit)="onsubmit(commentForm)">
-              <div class="form-group">
-                <div class="">
-                  <input class="form-control"   placeholder = "Name"   formControlName="name"/>
-                  <div *ngIf="commentForm.controls['name'].invalid && commentForm.controls['name'].touched"
-                       class="alert alert-danger">
-                    Please enter name
-                  </div>
-                </div>
-
-              </div>
-              <div class="form-group">
-                <div class=" ">
-                  <input type="email" class="form-control" name="email"  placeholder = "Email"   formControlName="email"/>
-                  <div *ngIf="commentForm.controls['email'].invalid && commentForm.controls['email'].touched"
-                       class="alert alert-danger">
-                    Please correct email (user@example.com)
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="">
-                  <textarea type="text" name="text" class="form-control"  placeholder="Post" rows="7" required formControlName="text"> </textarea>
-                  <div *ngIf="commentForm.controls['text'].invalid && commentForm.controls['text'].touched"
-                       class="alert alert-danger">
-                    Please enter text
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <div class=" col-xs-7">
-                  <button  class="btn btn-lg btn-add" [disabled]="commentForm.invalid" >Add</button>
-
-                </div>
-              </div>
-            </form>
+        </div>
+        <div class="form-group">
+          <div class=" ">
+            <input class="form-control" name="email"  placeholder = "Email"   formControlName="email"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="">
+            <textarea type="text" name="text" class="form-control"  placeholder="Post" rows="7" required formControlName="text"> </textarea>
           </div>
         </div>
 
-      </div>
+        <div class="form-group">
+          <div class=" ">
+            <button  class="btn btn-success btn-lg my-btn" [disabled]="commentForm.invalid" >Add</button>
 
+          </div>
+        </div>
+      </form>
     </div>
   </div>
+
+</div>
+ <div class="container" *ngIf="auth.isAuth()">
+   <div class="row">
+     <div class="my-comment">
+     <h3 class="text-center">  My comments </h3>
+     </div>
+   </div>
+ </div>
+
   <app-footer class="footer"></app-footer>
 </div>
