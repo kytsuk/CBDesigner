@@ -28,6 +28,7 @@ import {AuthGuardService} from "./auth/auth-guard.service";
 import {AuthModule} from "./auth/auth.module";
 import {AddTemplateComponent} from "./core/add-template/add-template.component";
 import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-translate";
+import { ContactComponent } from './core/contact/contact.component';
 export function httpFactory(http: Http) {
   return new TranslateStaticLoader(http, '/assets/i18n', '.json');
 }
@@ -47,7 +48,8 @@ export function httpFactory(http: Http) {
     HomeComponent,
     FooterComponent,
     TemplateComponent,
-    AddTemplateComponent
+    AddTemplateComponent,
+    ContactComponent
 
   ],
   imports: [
@@ -68,7 +70,8 @@ export function httpFactory(http: Http) {
        {path: 'total', component: ReportComponent},
       {path: 'about', component: AboutBoardComponent},
       {path: 'template', component: TemplateComponent},
-      {path: 'add-template', component: AddTemplateComponent, canActivate: [AuthGuardService]}
+      {path: 'add-template', component: AddTemplateComponent, canActivate: [AuthGuardService]},
+      {path: 'contact', component: ContactComponent}
     ])
   ],
   providers: [BoardService, DataService, AuthService, AuthGuardService,{ provide: LocationStrategy, useClass: HashLocationStrategy }],
