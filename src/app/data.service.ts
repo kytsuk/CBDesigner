@@ -9,8 +9,8 @@ export class DataService {
 
   constructor(private  http: Http, private auth: AuthService) { }
 
-  url = 'https://board-designer-39575.firebaseio.com/template';
-
+  url = 'https://designer-board.firebaseio.com/template';
+  urlComent = 'https://designer-board.firebaseio.com/template';
   addBoard(data){
     const token = this.auth.getToken()
     return this.http.post(this.url + '.json?auth=' + token, data)
@@ -26,5 +26,11 @@ export class DataService {
     return this.http.delete(this.url + '/' + id + '.json?auth=' + token)
         .subscribe(res => res);
 
+  }
+
+  addComment(data){
+
+    return this.http.post(this.urlComent + '.json' , data)
+        .subscribe(res=> res);
   }
 }
