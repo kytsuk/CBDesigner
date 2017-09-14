@@ -10,7 +10,7 @@ export class DataService {
   constructor(private  http: Http, private auth: AuthService) { }
 
   url = 'https://designer-board.firebaseio.com/template';
-  urlComent = 'https://designer-board.firebaseio.com/template';
+  urlComent = 'https://designer-board.firebaseio.com/comment';
   addBoard(data){
     const token = this.auth.getToken()
     return this.http.post(this.url + '.json?auth=' + token, data)
