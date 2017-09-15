@@ -2,26 +2,18 @@
     background: url(../../../assets/image/page/background.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
+
 }
 .my-form{
-    margin-top:  120px;
+    margin-top: 120px;
 }
-.my-comment{
-
+.panel{
+    background: rgba(0, 0, 0, .50);     border: solid 1px white;
+    color: white; margin-top: 20px;
 }
-
-@media screen and (max-width:520px ){
-    .main_slider_content h1 {
-        font-size: 4.5rem;                 line-height: 5rem;
-    }
-    .main_slider_content {
-        padding: 120px 0px 150px 0px;   font-size:1.5rem;
-    }
-    .main_slider_content button{
-        font-size: 28px;         padding: 45px 30px;
-    }
+.panel-heading{
+    background: rgba(0, 0, 0, .50); color: #da9b31;
 }
-
 @media screen and (max-width:390px ){
     .main_slider_content h1 {
         font-size: 3.5rem;                 line-height: 3rem;
