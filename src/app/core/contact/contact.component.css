@@ -1,19 +1,24 @@
 .home-bg{
     background: url(../../../assets/image/page/background.jpg) no-repeat center center fixed;
     background-size: cover;
-    height: 100vh;
+
 
 }
 .my-form{
     margin-top: 120px;
 }
+.my-post{
+    
+}
+
 .panel{
     background: rgba(0, 0, 0, .50);     border: solid 1px white;
     color: white; margin-top: 20px;
 }
 .panel-heading{
-    background: rgba(0, 0, 0, .50); color: #da9b31;
+    background: rgba(0, 0, 0, .50); color: #da9b31; display: inline-block; width: 100%;
 }
+
 @media screen and (max-width:390px ){
     .main_slider_content h1 {
         font-size: 3.5rem;                 line-height: 3rem;

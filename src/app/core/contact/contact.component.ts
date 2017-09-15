@@ -10,9 +10,16 @@ import {DataService} from "../../data.service";
 })
 export class ContactComponent implements OnInit {
   commentForm: FormGroup;
+  public comments : any[]=[];
+  public arrayOfKeys;
   constructor(private router: Router, public date: DataService) {}
 
   ngOnInit() {
+    this.date.loadComments()
+        .subscribe( res => { this.arrayOfKeys = Object.keys(res);
+          this.comments = res;
+          console.log(this.comments)
+        });
     this.commentForm = new FormGroup({
       name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}")]),

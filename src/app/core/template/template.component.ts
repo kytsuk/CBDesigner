@@ -20,7 +20,6 @@ export class TemplateComponent implements OnInit {
 
           this.arrayOfKeys = Object.keys(res);
           this.boardDate = res;
-
         });
 
   }

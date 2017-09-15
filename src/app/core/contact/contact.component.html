@@ -52,5 +52,34 @@
 
     </div>
   </div>
+  <div class="container my">
+    <div class="comment-post">
+      <div class="container page-header ">
+
+        <div class="row " >
+          <div class="col-sm-6 col xs-12  panel"  *ngFor="let coment of arrayOfKeys">
+           <div class="panel-heading">
+
+               <h4 class="">{{comments[coment][0]}}</h4>
+
+
+               <h5 class="">{{comments[coment][1]}}</h5>
+
+
+           </div>
+
+          <div class="panel-body">
+            <div class="">{{comments[coment][2]}}</div>
+            <div class="">{{comments[coment] [3]}}</div>
+          </div>
+
+            <button class="button-diy" (click)="onDelete(coment.id)">Delete</button>
+          </div>
+
+
+
+        </div>
+    </div>
+  </div>
   <app-footer class="footer"></app-footer>
 </div>

@@ -25,12 +25,14 @@ export class DataService {
     const token = this.auth.getToken()
     return this.http.delete(this.url + '/' + id + '.json?auth=' + token)
         .subscribe(res => res);
-
   }
 
   addComment(data){
-
     return this.http.post(this.urlComent + '.json' , data)
         .subscribe(res=> res);
+  }
+  loadComments(){
+    return  this.http.get(this.urlComent + '.json')
+        .map((res) => res.json());
   }
 }
