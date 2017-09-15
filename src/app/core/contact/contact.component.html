@@ -14,7 +14,7 @@
                   <input class="form-control"   placeholder = "Name"   formControlName="name"/>
                   <div *ngIf="commentForm.controls['name'].invalid && commentForm.controls['name'].touched"
                        class="alert alert-danger">
-                    Please enter a name
+                    Please enter name
                   </div>
                 </div>
 
@@ -22,17 +22,25 @@
               <div class="form-group">
                 <div class=" ">
                   <input type="email" class="form-control" name="email"  placeholder = "Email"   formControlName="email"/>
+                  <div *ngIf="commentForm.controls['email'].invalid && commentForm.controls['email'].touched"
+                       class="alert alert-danger">
+                    Please correct email (user@example.com)
+                  </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="">
                   <textarea type="text" name="text" class="form-control"  placeholder="Post" rows="7" required formControlName="text"> </textarea>
+                  <div *ngIf="commentForm.controls['text'].invalid && commentForm.controls['text'].touched"
+                       class="alert alert-danger">
+                    Please enter text
+                  </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class=" col-xs-7">
-                  <button  class="btn btn-success btn-lg my-btn" [disabled]="commentForm.invalid" >Add</button>
+                  <button  class="btn btn-lg btn-add" [disabled]="commentForm.invalid" >Add</button>
 
                 </div>
               </div>

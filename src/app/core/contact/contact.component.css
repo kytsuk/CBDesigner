@@ -14,3 +14,5 @@
 .panel-heading{
     background: rgba(0, 0, 0, .50); color: #da9b31;
 }
+.btn-add{
+    background: #da9b31;     border: solid 1px white; }
