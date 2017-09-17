@@ -1,0 +1,9 @@
+.video-bg{
+    background: url(../../../assets/image/page/background.jpg) center center ;
+    background-size: cover;
+    height: 100vh;
+}
+.video{
+    margin-top: 80px;
+    margin-bottom: 70px;
+}

@@ -5,13 +5,13 @@
       <div class="col-sm-offset-3 col-sm-6 col-xs-12 my-form ">
         <div class="panel">
           <div class="panel-heading">
-            <h3>Contact form</h3>
+            <h3 class="text-center"> {{"contact" | translate}}</h3>
           </div>
           <div class="panel-body">
             <form   [formGroup]="commentForm" novalidate  (ngSubmit)="onsubmit(commentForm)">
               <div class="form-group">
                 <div class="">
-                  <input class="form-control"   placeholder = "Name"   formControlName="name"/>
+                  <input class="form-control"   placeholder ="{{ 'name' | translate}}"  formControlName="name"/>
                   <div *ngIf="commentForm.controls['name'].invalid && commentForm.controls['name'].touched"
                        class="alert alert-danger">
                     Please enter a name
@@ -21,7 +21,7 @@
               </div>
               <div class="form-group">
                 <div class=" ">
-                  <input type="email" class="form-control" name="email"  placeholder = "Email"   formControlName="email"/>
+                  <input type="email" class="form-control" name="email"  placeholder = "{{ 'email' | translate}}"   formControlName="email"/>
                   <div *ngIf="commentForm.controls['email'].invalid && commentForm.controls['email'].touched"
                        class="alert alert-danger">
                     Please enter correct email
@@ -30,7 +30,7 @@
               </div>
               <div class="form-group">
                 <div class="">
-                  <textarea type="text" name="text" class="form-control"  placeholder="Post" rows="7" required formControlName="text"> </textarea>
+                  <textarea type="text" name="text"  class="form-control"  placeholder="{{ 'text' | translate}}" rows="7" required formControlName="text"> </textarea>
                   <div *ngIf="commentForm.controls['text'].invalid && commentForm.controls['text'].touched"
                        class="alert alert-danger">
                     Please enter text
@@ -40,7 +40,7 @@
 
               <div class="form-group">
                 <div class=" col-xs-7">
-                  <button  class="btn btn-success btn-lg my-btn" [disabled]="commentForm.invalid" >Add</button>
+                  <button  class="btn btn-success btn-lg my-btn" [disabled]="commentForm.invalid" >{{ 'send' | translate}}</button>
 
                 </div>
               </div>
@@ -52,28 +52,48 @@
 
     </div>
   </div>
-  <div class="container my">
+
+  <div class="container-fluid contact-font">
+    <div class=row>
+      <div class="panel contact col-xs-offset-3 col-xs-6">
+       <div class="panel-heading">
+         <h2>{{ 'social' | translate}}</h2>
+       </div>
+         <div class="panel-body">
+           <div class="soc">
+             <a href="https://www.facebook.com/kvadrowood/" target=_blank><i class="fa fa-facebook-official "></i> </a>
+             <a href="https://www.youtube.com/channel/UCT_DW_WOhsFtpbTQ3N2-Ssw/videos" target=_blank><i class="fa fa-youtube"></i> </a>
+             <a href="https://www.instagram.com/kvadrowood/" target=_blank><i class="fa fa-instagram"></i> </a>
+             <a href="https://plus.google.com/u/0/b/114338380234639876878/+kvadrowood" target=_blank><i class="fa fa-google-plus-official"></i> </a>
+             <a href="https://tradition.org.ua" target=_blank><i class="fa fa-rss"></i> </a>
+           </div>
+         </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container " *ngIf="auth.isAuth()">
     <div class="comment-post">
       <div class="container page-header ">
 
         <div class="row " >
           <div class="col-sm-6 col xs-12  panel"  *ngFor="let coment of arrayOfKeys">
            <div class="panel-heading">
-
                <h4 class="">{{comments[coment][0]}}</h4>
-
-
                <h5 class="">{{comments[coment][1]}}</h5>
-
 
            </div>
 
           <div class="panel-body">
             <div class="">{{comments[coment][2]}}</div>
-            <div class="">{{comments[coment] [3]}}</div>
+
+          </div>
+          <div class="panel-footer">
+            <span class="">{{comments[coment] [3]}}</span>
+            <button class="button  pull-right" (click)="delete(coment)">Delete</button>
           </div>
 
-            <button class="button-diy" (click)="onDelete(coment.id)">Delete</button>
           </div>
 
 

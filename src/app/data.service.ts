@@ -35,4 +35,9 @@ export class DataService {
     return  this.http.get(this.urlComent + '.json')
         .map((res) => res.json());
   }
+  deleteComment(id){
+    const token = this.auth.getToken()
+    return this.http.delete(this.urlComent + '/' + id + '.json?auth=' + token)
+        .subscribe(res => res);
+  }
 }

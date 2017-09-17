@@ -36,7 +36,7 @@ export class BoardService {
   constructor(public translate: TranslateService) {
 
   }
-    public wood: any[]=[];
+    public wood: any[]=[]; //переклад масиву даних
     layershow: boolean = false; //для показу компонетів
     editLayer: number = null; //номер щита редагування
    totalWidth: number = 0; // загальна ширина щита

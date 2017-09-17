@@ -29,6 +29,7 @@ import {AuthModule} from "./auth/auth.module";
 import {AddTemplateComponent} from "./core/add-template/add-template.component";
 import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-translate";
 import { ContactComponent } from './core/contact/contact.component';
+import { VideoComponent } from './core/video/video.component';
 export function httpFactory(http: Http) {
   return new TranslateStaticLoader(http, '/assets/i18n', '.json');
 }
@@ -49,7 +50,8 @@ export function httpFactory(http: Http) {
     FooterComponent,
     TemplateComponent,
     AddTemplateComponent,
-    ContactComponent
+    ContactComponent,
+    VideoComponent
 
   ],
   imports: [
@@ -71,7 +73,8 @@ export function httpFactory(http: Http) {
       {path: 'about', component: AboutBoardComponent},
       {path: 'template', component: TemplateComponent},
       {path: 'add-template', component: AddTemplateComponent, canActivate: [AuthGuardService]},
-      {path: 'contact', component: ContactComponent}
+      {path: 'contact', component: ContactComponent},
+      {path: 'video', component: VideoComponent}
     ])
   ],
   providers: [BoardService, DataService, AuthService, AuthGuardService,{ provide: LocationStrategy, useClass: HashLocationStrategy }],

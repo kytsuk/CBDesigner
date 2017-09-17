@@ -7,8 +7,8 @@
 .my-form{
     margin-top: 120px;
 }
-.my-post{
-    
+.comment-post{
+    margin-bottom: 50px;
 }
 
 .panel{
@@ -16,8 +16,18 @@
     color: white; margin-top: 20px;
 }
 .panel-heading{
-    background: rgba(0, 0, 0, .50); color: #da9b31; display: inline-block; width: 100%;
+    background: rgba(0, 0, 0, .50); color: #da9b31; display: inline-block; width: 100%; border-radius: 8px; margin-top: 8px;
 }
+.panel-footer{
+    background: rgba(0, 0, 0, .55);
+}
+.panel-footer button{
+    background: #da9b31; border: 1px solid white;
+}
+.contact-font{padding-bottom:30px;}
+.contact{text-align:center;color:white;}
+.soc i{font-size:3.8em;padding:10px;color:#F0AD4E;}
+.soc i:hover{border:2px solid white;transition:0.5s;border-radius:20%;}
 
 @media screen and (max-width:390px ){
     .main_slider_content h1 {
