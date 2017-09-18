@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from "@angular/platform-browser";
 import {TranslateService} from "ng2-translate";
+import {BoardService} from "../../board.service";
 
 @Component({
   selector: 'app-video',
@@ -10,19 +11,18 @@ import {TranslateService} from "ng2-translate";
 export class VideoComponent implements OnInit {
   url: any;
   baseUrl:string = 'https://www.youtube.com/embed/';
-  constructor(private sanitizer: DomSanitizer, public translate: TranslateService) {
+  constructor(private sanitizer: DomSanitizer, public translate: TranslateService, public boardservise: BoardService) {
 
   }
 
   ngOnInit() {
-    this.video();
+
+    this.translate.getTranslation(this.translate.currentLang).subscribe((res) => {
+      console.log(this.translate.currentLang)
+      this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + res.video);
+    });
+
 
   }
-video (){
 
-  this.translate.getTranslation(this.translate.currentLang).subscribe((res) => {
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + res.video);
-  });
-  console.log(this.url)
-}
 }

@@ -1,12 +1,18 @@
 <div class="container-fluid video-bg">
   <app-header></app-header>
-  <div class="container-fluid video">
+  <div class="container-fluid video ">
     <div class="row">
-      <div class="col-sm-offset-2 col-sm-8 col-xs-12">
-
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe [src]="url" frameborder="1" ></iframe>
+      <div class="col-sm-offset-2 col-sm-8 col-xs-12 panel">
+        <div class="panel-heading">
+            <h2 class="text-center">{{"insVideo" | translate}} </h2>
         </div>
+          <div class="panel-body">
+              <div class="embed-responsive embed-responsive-16by9">
+                  <iframe [src]="url" frameborder="1" ></iframe>
+
+              </div>
+          </div>
+
       </div>
     </div>
   </div>

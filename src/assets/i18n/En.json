@@ -72,12 +72,13 @@
   "name" : "Name",
   "save img" : "Save image",
   "go report" : "Go to report",
-  "contact" : "Contact form",
+  "contactform" : "Contact form",
   "email" : "Email",
   "text" : "Text",
   "send" : "Send",
   "social" : "Contact social",
-  "video" : "Pl6LKYv1Up0"
+  "video" : "Pl6LKYv1Up0",
+  "insVideo" : "Video instruction"
 
 
 }

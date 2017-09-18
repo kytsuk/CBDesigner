@@ -1,9 +1,17 @@
 .video-bg{
     background: url(../../../assets/image/page/background.jpg) center center ;
     background-size: cover;
-    height: 100vh;
+
 }
 .video{
     margin-top: 80px;
     margin-bottom: 70px;
 }
+.panel{
+    background: rgba(0, 0, 0, .50);     border: solid 1px white;
+    color: white; margin-top: 20px;
+}
+.panel-heading{
+    background: rgba(0, 0, 0, .50); color: #da9b31; display: inline-block; width: 100%; border-radius: 8px; margin-top: 8px; margin-bottom: 15px ;
+}
+.panel-body {border: 1px solid white}

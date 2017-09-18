@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Layer} from './board.model';
 import {TranslateService} from "ng2-translate";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Injectable()
 export class BoardService {
@@ -33,9 +34,11 @@ export class BoardService {
   ]
 
 
-  constructor(public translate: TranslateService) {
+    constructor(public translate: TranslateService) {
 
-  }
+    }
+
+
     public wood: any[]=[]; //переклад масиву даних
     layershow: boolean = false; //для показу компонетів
     editLayer: number = null; //номер щита редагування
@@ -71,7 +74,6 @@ export class BoardService {
               this.wood.push(res.wood[arrayofKeys[i]]);
           }
       });
-     // console.log(wood)
-
   }
+
 }

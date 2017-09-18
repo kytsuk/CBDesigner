@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
   commentForm: FormGroup;
   public comments : any[]=[];
   public arrayOfKeys;
-  constructor(private router: Router, public date: DataService, private auth: AuthService) {}
+  constructor(private router: Router, public date: DataService, public auth: AuthService) {}
 
   ngOnInit() {
     this.date.loadComments()
