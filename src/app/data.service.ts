@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataService {
 
-  constructor(private  http: Http, private auth: AuthService) { }
+  constructor(public  http: Http, public auth: AuthService) { }
 
   url = 'https://designer-board.firebaseio.com/template';
   urlComent = 'https://designer-board.firebaseio.com/comment';

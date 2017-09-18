@@ -30,6 +30,8 @@ import {AddTemplateComponent} from "./core/add-template/add-template.component";
 import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-translate";
 import { ContactComponent } from './core/contact/contact.component';
 import { VideoComponent } from './core/video/video.component';
+
+
 export function httpFactory(http: Http) {
   return new TranslateStaticLoader(http, '/assets/i18n', '.json');
 }
