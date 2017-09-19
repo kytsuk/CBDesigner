@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
         this.boardservise.finalLayer = array[1];
         this.boardservise.clickeditem = array[2];
         this.boardservise.heightBoard = array[3];
-
+    console.log(this.boardservise.rotateItem)
         for(let i=0; i<this.boardservise.clickeditem.length; i++){
           this.boardservise.board.push( this.boardservise.finalLayer[this.boardservise.clickeditem[i]]);
         }
